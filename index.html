@@ -3,9 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="style.css">
   <title>ANTIDOT — Luxury Streetwear</title>
-
   
   <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -30,6 +28,7 @@
             brandElevated: '#252525',
             brandBorder: '#2D2D2D',
             brandBorderLight: '#3D3D3D',
+            brandHeader: '#1A1A1A',
           }
         }
       }
@@ -96,6 +95,19 @@
         opacity: 1;
       }
     }
+
+    /* Header flex centering */
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .header-center {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+    }
   </style>
 </head>
 <body class="bg-brandBg text-white font-sans antialiased selection:bg-white selection:text-black overflow-x-hidden">
@@ -106,17 +118,17 @@
   </div>
 
   <!-- ================= HEADER ================= -->
-  <header class="fixed top-0 left-0 w-full z-40 bg-brandBg/90 backdrop-blur-md border-b border-brandBorder px-4 lg:px-8 py-3 flex items-center justify-between">
+  <header class="fixed top-0 left-0 w-full z-40 bg-brandHeader/95 backdrop-blur-md border-b border-brandBorder px-4 lg:px-8 py-4 flex items-center justify-between">
     
     <!-- Навігація ліворуч -->
     <nav class="hidden md:flex items-center space-x-4 text-[11px] font-mono tracking-widest text-neutral-400">
       <a href="#drop" data-i18n="nav_catalog" class="hover:text-white transition-colors btn-spring inline-block">КАТАЛОГ</a>
       <span class="text-neutral-700">/</span>
-      <a href="#lookbook" data-i18n="nav_archive" class="hover:text-white transition-colors btn-spring inline-block">АРХІВ</a>
+      <a href="#coming-soon" data-i18n="nav_coming_soon" class="hover:text-white transition-colors btn-spring inline-block">СКОРО...</a>
     </nav>
 
-    <!-- Логотип ANTIDOT -->
-    <div class="text-xl md:text-2xl font-black tracking-tighter uppercase select-none">
+    <!-- Логотип ANTIDOT (центр) -->
+    <div class="header-center text-2xl md:text-3xl font-black tracking-tighter uppercase select-none">
       <a href="#" class="hover:text-neutral-300 transition-colors btn-spring inline-block">ANTIDOT</a>
     </div>
 
@@ -161,11 +173,11 @@
         <svg class="w-20 h-20 text-neutral-300 group-hover:scale-105 transition-transform duration-300" viewBox="0 0 24 24" fill="currentColor">
           <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
         </svg>
-        <span class="font-mono text-[10px] text-white font-bold mt-3 tracking-wider">ST. OLGA TEE</span>
-        <span class="font-mono text-[10px] text-neutral-400 main-product-price">2,400 UAH</span>
+        <span class="font-mono text-[11px] text-white font-bold mt-3 tracking-wider">ST. OLGA TEE</span>
+        <span class="font-mono text-[12px] text-neutral-300 main-product-price font-bold">2,400 UAH</span>
       </div>
 
-      <p class="font-mono text-[10px] text-neutral-400 mt-4 tracking-widest uppercase text-center" data-i18n="hero_fabric_specs">
+      <p class="font-mono text-[11px] text-neutral-400 mt-4 tracking-widest uppercase text-center" data-i18n="hero_fabric_specs">
         HEAVYWEIGHT 240 GSM COTTON / OVERSIZED FIT
       </p>
     </div>
@@ -191,12 +203,12 @@
         <div>
           <span class="text-[10px] text-neutral-500 uppercase tracking-widest">// DROP 01 / ITEM 01</span>
           <h2 class="text-2xl font-sans font-black tracking-tight text-white uppercase mt-1">ST. OLGA / KYIV TEE</h2>
-          <p class="text-[11px] text-neutral-400 mt-2 leading-relaxed" data-i18n="product_desc">
+          <p class="text-[12px] text-neutral-300 mt-2 leading-relaxed" data-i18n="product_desc">
             100% Важка бавовна (240 GSM). Шовкотрафаретний друк високої щільності. Вільний крій Oversize. Зроблено в Києві.
           </p>
         </div>
 
-        <div class="text-xl font-bold text-white tracking-wider main-product-price">2,400 UAH</div>
+        <div class="text-2xl font-bold text-white tracking-wider main-product-price">2,400 UAH</div>
 
         <!-- Вибір розміру -->
         <div class="space-y-2 pt-3 border-t border-brandBorder">
@@ -217,6 +229,51 @@
         </button>
       </div>
 
+    </div>
+  </section>
+
+  <!-- ================= COMING SOON SECTION ================= -->
+  <section id="coming-soon" class="py-16 px-6 lg:px-12 max-w-6xl mx-auto border-b border-brandBorder">
+    <div class="text-center space-y-8">
+      <div>
+        <span class="font-mono text-[10px] text-neutral-400 uppercase tracking-widest" data-i18n="coming_soon_tag">// СКОРО</span>
+        <h2 class="text-3xl md:text-4xl font-black uppercase tracking-tight text-white mt-2" data-i18n="coming_soon_title">НАСТУПНІ КОЛЕКЦІЇ</h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <!-- Coming Soon Item 1 -->
+        <div class="bg-brandElevated border border-brandBorder p-8 flex flex-col items-center justify-center aspect-square card-hover">
+          <div class="w-24 h-32 bg-brandBg border border-brandBorder flex items-center justify-center mb-4">
+            <svg class="w-12 h-12 text-neutral-500" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+            </svg>
+          </div>
+          <h3 class="font-mono text-sm font-bold text-white tracking-wider uppercase" data-i18n="coming_drop_2">DROP 02</h3>
+          <p class="font-mono text-[10px] text-neutral-400 mt-1 tracking-widest">КИЕВ STREETS</p>
+        </div>
+
+        <!-- Coming Soon Item 2 -->
+        <div class="bg-brandElevated border border-brandBorder p-8 flex flex-col items-center justify-center aspect-square card-hover">
+          <div class="w-24 h-32 bg-brandBg border border-brandBorder flex items-center justify-center mb-4">
+            <svg class="w-12 h-12 text-neutral-500" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+            </svg>
+          </div>
+          <h3 class="font-mono text-sm font-bold text-white tracking-wider uppercase" data-i18n="coming_drop_3">DROP 03</h3>
+          <p class="font-mono text-[10px] text-neutral-400 mt-1 tracking-widest">URBAN COLLECTION</p>
+        </div>
+
+        <!-- Coming Soon Item 3 -->
+        <div class="bg-brandElevated border border-brandBorder p-8 flex flex-col items-center justify-center aspect-square card-hover">
+          <div class="w-24 h-32 bg-brandBg border border-brandBorder flex items-center justify-center mb-4">
+            <svg class="w-12 h-12 text-neutral-500" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+            </svg>
+          </div>
+          <h3 class="font-mono text-sm font-bold text-white tracking-wider uppercase" data-i18n="coming_drop_4">DROP 04</h3>
+          <p class="font-mono text-[10px] text-neutral-400 mt-1 tracking-widest">WINTER EDITION</p>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -285,11 +342,11 @@
       <form id="authForm" class="space-y-3 pt-2" onsubmit="handleAuthSubmit(event)">
         <div>
           <label class="block text-[10px] text-neutral-400 uppercase mb-1" data-i18n="lbl_email">EMAIL АДРЕСА</label>
-          <input type="email" id="authEmail" required placeholder="name@domain.com" class="w-full bg-brandBg border border-brandBorder px-3 py-2 text-white placeholder-neutral-600 focus:outline-none focus:border-white text-xs">
+          <input type="email" id="authEmail" required placeholder="name@domain.com" class="w-full bg-brandBg border border-brandBorder px-3 py-2 text-white placeholder-neutral-600 focus:outline-none focus:border-white">
         </div>
         <div>
           <label class="block text-[10px] text-neutral-400 uppercase mb-1" data-i18n="lbl_password">ПАРОЛЬ</label>
-          <input type="password" id="authPassword" required placeholder="••••••••" class="w-full bg-brandBg border border-brandBorder px-3 py-2 text-white placeholder-neutral-600 focus:outline-none focus:border-white text-xs">
+          <input type="password" id="authPassword" required placeholder="••••••••" class="w-full bg-brandBg border border-brandBorder px-3 py-2 text-white placeholder-neutral-600 focus:outline-none focus:border-white">
         </div>
 
         <button type="submit" id="authSubmitBtn" class="btn-spring w-full bg-white text-black font-sans font-bold py-3 text-xs tracking-widest uppercase mt-4" data-i18n="btn_submit_login">
@@ -375,7 +432,7 @@
     const i18nData = {
       UA: {
         nav_catalog: "КАТАЛОГ",
-        nav_archive: "АРХІВ",
+        nav_coming_soon: "СКОРО...",
         btn_profile: "ПРОФІЛЬ",
         btn_cart: "КОШИК",
         hero_drop_tag: "// DROP 01 / KYIV FOUNDATIONS",
@@ -413,10 +470,15 @@
         toast_added: "Товар додано в кошик! ✓",
         toast_subscribe: "Спасибі за підписку! ✓",
         toast_checkout: "Переходимо до оформлення...",
+        coming_soon_tag: "// СКОРО",
+        coming_soon_title: "НАСТУПНІ КОЛЕКЦІЇ",
+        coming_drop_2: "DROP 02",
+        coming_drop_3: "DROP 03",
+        coming_drop_4: "DROP 04",
       },
       EN: {
         nav_catalog: "CATALOG",
-        nav_archive: "ARCHIVE",
+        nav_coming_soon: "COMING SOON",
         btn_profile: "PROFILE",
         btn_cart: "CART",
         hero_drop_tag: "// DROP 01 / KYIV FOUNDATIONS",
@@ -454,6 +516,11 @@
         toast_added: "Item added to cart! ✓",
         toast_subscribe: "Thanks for subscribing! ✓",
         toast_checkout: "Proceeding to checkout...",
+        coming_soon_tag: "// COMING SOON",
+        coming_soon_title: "UPCOMING COLLECTIONS",
+        coming_drop_2: "DROP 02",
+        coming_drop_3: "DROP 03",
+        coming_drop_4: "DROP 04",
       }
     };
 
@@ -465,6 +532,7 @@
     let cartItems = [];
     let baseShippingCostUAH = 100;
     let isLoggedIn = false;
+    let isRegistering = false;
 
     // --- NOTIFICATION TOAST ---
     function showToast(messageKey) {
@@ -564,6 +632,7 @@
 
     tabLogin.addEventListener('click', () => {
       isLoginTab = true;
+      isRegistering = false;
       tabLogin.className = 'font-bold text-white border-b-2 border-white pb-1';
       tabRegister.className = 'text-neutral-400 hover:text-white pb-1';
       authSubmitBtn.innerText = i18nData[currentLang].btn_submit_login;
@@ -571,6 +640,7 @@
 
     tabRegister.addEventListener('click', () => {
       isLoginTab = false;
+      isRegistering = true;
       tabRegister.className = 'font-bold text-white border-b-2 border-white pb-1';
       tabLogin.className = 'text-neutral-400 hover:text-white pb-1';
       authSubmitBtn.innerText = i18nData[currentLang].btn_submit_register;
@@ -582,14 +652,17 @@
       const email = document.getElementById('authEmail').value;
       isLoggedIn = true;
       closeProfile();
-      showToast('toast_added');
+      // Не показуємо toast при реєстрації /ログіні
+      if (!isRegistering) {
+        showToast('toast_added');
+      }
       document.getElementById('authForm').reset();
     }
 
     googleAuthBtn.addEventListener('click', () => {
       isLoggedIn = true;
       closeProfile();
-      showToast('toast_added');
+      // Не показуємо toast при Google入力
     });
 
     document.getElementById('authForm').addEventListener('submit', handleAuthSubmit);
@@ -753,7 +826,7 @@
       }
       showToast('toast_checkout');
       setTimeout(() => {
-        alert(`Замовлення на суму ${totalText.innerText} готово до оплати!\n\nВ реальному проекті тут буде інтеграція з платіжною системою.`);
+        alert(`Замовлення на суму ${totalText.innerText} готово до оплати!\n\nВ реальному проекті тут буде інтеграція з платіжним шлюзом.`);
       }, 500);
     });
 
