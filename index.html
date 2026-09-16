@@ -1,0 +1,663 @@
+<!DOCTYPE html>
+<html lang="uk" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ANTIDOT — Luxury Streetwear</title>
+  
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- Google Fonts: Inter & JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800;900&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            mono: ['JetBrains Mono', 'monospace'],
+          },
+          colors: {
+            brandBg: '#141414',
+            brandCard: '#1E1E1E',
+            brandElevated: '#252525',
+            brandBorder: '#2D2D2D',
+            brandBorderLight: '#3D3D3D',
+          }
+        }
+      }
+    }
+  </script>
+  
+  <style>
+    /* Стримана мікро-анімація пружинения */
+    .btn-spring {
+      transition: transform 0.2s cubic-bezier(0.25, 1, 0.5, 1), background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+    }
+    .btn-spring:hover {
+      transform: scale(1.02);
+    }
+    .btn-spring:active {
+      transform: scale(0.97);
+    }
+
+    .card-hover {
+      transition: border-color 0.25s ease, transform 0.25s ease;
+    }
+    .card-hover:hover {
+      border-color: #4A4A4A;
+    }
+  </style>
+</head>
+<body class="bg-brandBg text-white font-sans antialiased selection:bg-white selection:text-black overflow-x-hidden">
+
+  <!-- ================= HEADER ================= -->
+  <header class="fixed top-0 left-0 w-full z-40 bg-brandBg/90 backdrop-blur-md border-b border-brandBorder px-4 lg:px-8 py-3 flex items-center justify-between">
+    
+    <!-- Навігація ліворуч -->
+    <nav class="hidden md:flex items-center space-x-4 text-[11px] font-mono tracking-widest text-neutral-400">
+      <a href="#drop" data-i18n="nav_catalog" class="hover:text-white transition-colors btn-spring inline-block">КАТАЛОГ</a>
+      <span class="text-neutral-700">/</span>
+      <a href="#lookbook" data-i18n="nav_archive" class="hover:text-white transition-colors btn-spring inline-block">АРХІВ</a>
+    </nav>
+
+    <!-- Логотип ANTIDOT -->
+    <div class="text-xl md:text-2xl font-black tracking-tighter uppercase select-none btn-spring">
+      <a href="#">ANTIDOT</a>
+    </div>
+
+    <!-- Інструменти праворуч -->
+    <div class="flex items-center space-x-3 sm:space-x-4 text-[11px] font-mono tracking-widest">
+      
+      <!-- Перемикач Валюти (UAH / EUR) -->
+      <button id="currBtn" class="btn-spring bg-brandCard border border-brandBorder px-2.5 py-1 text-neutral-300 hover:text-white hover:border-brandBorderLight text-[10px] font-bold">
+        UAH (₴)
+      </button>
+
+      <!-- Перемикач Мови (Ползунок) -->
+      <div id="langSwitcher" class="relative flex items-center bg-brandCard border border-brandBorder p-0.5 rounded-full cursor-pointer select-none w-16 h-6 btn-spring">
+        <div id="langSlider" class="absolute left-0.5 top-0.5 w-7 h-5 bg-white rounded-full transition-transform duration-300 ease-out"></div>
+        <span id="langUA" class="relative z-10 w-1/2 text-center font-bold text-[9px] text-black transition-colors">UA</span>
+        <span id="langEN" class="relative z-10 w-1/2 text-center font-bold text-[9px] text-neutral-400 transition-colors">EN</span>
+      </div>
+
+      <!-- Кнопка Профілю -->
+      <button id="openProfileBtn" class="btn-spring bg-brandCard border border-brandBorder text-neutral-300 hover:text-white hover:border-brandBorderLight px-3 py-1 uppercase text-[10px] font-bold">
+        <span data-i18n="btn_profile">ПРОФІЛЬ</span>
+      </button>
+
+      <!-- Кнопка Кошика -->
+      <button id="openCartBtn" class="btn-spring bg-white text-black font-bold px-3 py-1 uppercase tracking-wider text-[10px] border border-white">
+        <span data-i18n="btn_cart">КОШИК</span> (<span id="headerCartCount">0</span>)
+      </button>
+    </div>
+  </header>
+
+  <!-- ================= HERO SHOWCASE ================= -->
+  <section class="min-h-[85vh] pt-24 pb-12 px-6 flex flex-col items-center justify-center relative border-b border-brandBorder bg-gradient-to-b from-brandBg via-brandCard to-brandBg">
+    
+    <div class="text-center space-y-1 mb-4">
+      <span class="font-mono text-[10px] text-neutral-400 uppercase tracking-widest" data-i18n="hero_drop_tag">// DROP 01 / KYIV FOUNDATIONS</span>
+      <h1 class="text-3xl md:text-5xl font-black uppercase tracking-tight text-white">ANTIDOT</h1>
+    </div>
+
+    <!-- Об'ємний елемент презентації -->
+    <div class="relative w-full max-w-sm aspect-square bg-brandCard border border-brandBorder shadow-xl flex flex-col items-center justify-center p-6 card-hover my-3">
+      <div class="w-40 h-48 bg-brandElevated border border-brandBorderLight flex flex-col items-center justify-center p-3 shadow-inner relative group">
+        <svg class="w-20 h-20 text-neutral-300 group-hover:scale-105 transition-transform duration-300" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+        </svg>
+        <span class="font-mono text-[10px] text-white font-bold mt-3 tracking-wider">ST. OLGA TEE</span>
+        <span class="font-mono text-[10px] text-neutral-400 main-product-price">2,400 UAH</span>
+      </div>
+
+      <p class="font-mono text-[10px] text-neutral-400 mt-4 tracking-widest uppercase text-center" data-i18n="hero_fabric_specs">
+        HEAVYWEIGHT 240 GSM COTTON / OVERSIZED FIT
+      </p>
+    </div>
+
+    <a href="#drop" class="btn-spring border border-brandBorderLight bg-brandCard hover:bg-white hover:text-black transition-all px-6 py-2.5 font-mono text-[11px] tracking-widest uppercase mt-3" data-i18n="btn_explore">
+      ПЕРЕГЛЯНУТИ ДРОП ↓
+    </a>
+  </section>
+
+  <!-- ================= FEATURED PRODUCT ================= -->
+  <section id="drop" class="py-14 px-6 lg:px-12 max-w-6xl mx-auto border-b border-brandBorder">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
+      
+      <!-- Фото модель -->
+      <div class="bg-brandCard border border-brandBorder aspect-[4/5] flex flex-col items-center justify-center p-4 card-hover relative overflow-hidden">
+        <div class="w-full h-full bg-brandElevated border border-brandBorder flex items-center justify-center">
+          <span class="font-mono text-[11px] text-neutral-400 uppercase tracking-widest">[ LOOKBOOK // ST. OLGA ]</span>
+        </div>
+      </div>
+
+      <!-- Деталі товару -->
+      <div class="space-y-6 font-mono bg-brandCard p-6 border border-brandBorder card-hover">
+        <div>
+          <span class="text-[10px] text-neutral-500 uppercase tracking-widest">// DROP 01 / ITEM 01</span>
+          <h2 class="text-2xl font-sans font-black tracking-tight text-white uppercase mt-1">ST. OLGA / KYIV TEE</h2>
+          <p class="text-[11px] text-neutral-400 mt-2 leading-relaxed" data-i18n="product_desc">
+            100% Важка бавовна (240 GSM). Шовкотрафаретний друк високої щільності. Вільний крій Oversize. Зроблено в Києві.
+          </p>
+        </div>
+
+        <div class="text-xl font-bold text-white tracking-wider main-product-price">2,400 UAH</div>
+
+        <!-- Вибір розміру -->
+        <div class="space-y-2 pt-3 border-t border-brandBorder">
+          <div class="flex justify-between items-center text-[11px] text-neutral-400">
+            <span data-i18n="label_select_size">ОБЕРІТЬ РОЗМІР:</span>
+            <button class="underline hover:text-white transition-colors text-[10px]" data-i18n="label_size_guide">[ РАЗМІРНА СІТКА ]</button>
+          </div>
+          
+          <div class="grid grid-cols-3 gap-2" id="sizeSelector">
+            <button data-size="S" class="size-btn btn-spring border border-brandBorder bg-brandBg py-2 text-[11px] text-neutral-300 hover:border-white">S</button>
+            <button data-size="M" class="size-btn btn-spring border border-brandBorder bg-brandBg py-2 text-[11px] text-neutral-300 hover:border-white">M</button>
+            <button data-size="L" class="size-btn btn-spring border border-white bg-white text-black font-bold py-2 text-[11px]">L</button>
+          </div>
+        </div>
+
+        <button id="addToCartMainBtn" class="btn-spring w-full bg-white text-black font-sans font-black py-3 text-xs tracking-widest uppercase border border-white" data-i18n="btn_add_to_cart">
+          ДОДАТИ В КОШИК
+        </button>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ================= FOOTER ================= -->
+  <footer class="py-10 px-6 lg:px-12 max-w-6xl mx-auto font-mono text-[11px] text-neutral-400 space-y-6">
+    <div class="flex flex-col md:flex-row justify-between items-center gap-4 border-b border-brandBorder pb-6">
+      <div class="flex w-full md:w-auto space-x-2">
+        <input 
+          type="email" 
+          placeholder="EMAIL" 
+          data-i18n-ph="ph_email"
+          class="bg-brandCard border border-brandBorder px-3 py-2 text-[11px] text-white placeholder-neutral-600 focus:outline-none focus:border-white uppercase w-full sm:w-56"
+        >
+        <button class="btn-spring bg-white text-black font-bold px-4 py-2 uppercase border border-white text-[10px]" data-i18n="btn_subscribe">
+          ПІДПИСАТИСЬ
+        </button>
+      </div>
+
+      <div class="flex flex-wrap justify-center gap-4 uppercase text-[10px]">
+        <a href="#" class="hover:text-white transition-colors" data-i18n="ft_about">ПРО БРЕНД</a>
+        <a href="#" class="hover:text-white transition-colors" data-i18n="ft_contacts">КОНТАКТИ</a>
+        <a href="#" class="hover:text-white transition-colors" data-i18n="ft_delivery">ДОСТАВКА</a>
+        <a href="#" class="hover:text-white transition-colors" data-i18n="ft_returns">ПОВЕРНЕННЯ</a>
+      </div>
+    </div>
+
+    <div class="flex flex-col sm:flex-row justify-between items-center gap-3 text-[9px] text-neutral-500 uppercase">
+      <div class="flex space-x-4">
+        <a href="#" class="hover:text-neutral-300 transition-colors">INSTAGRAM</a>
+        <a href="#" class="hover:text-neutral-300 transition-colors">TIKTOK</a>
+        <a href="#" class="hover:text-neutral-300 transition-colors">TELEGRAM</a>
+      </div>
+      <div>© 2026 ANTIDOT. KYIV, UKRAINE.</div>
+    </div>
+  </footer>
+
+  <!-- ================= PROFILE MODAL ================= -->
+  <div id="profileOverlay" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 transition-opacity duration-300 opacity-0 pointer-events-none flex items-center justify-center p-4">
+    <div id="profileModal" class="bg-brandCard border border-brandBorder w-full max-w-md p-6 sm:p-8 relative font-mono text-xs space-y-6 shadow-2xl">
+      
+      <div class="flex justify-between items-center border-b border-brandBorder pb-4">
+        <div class="flex space-x-4 text-xs">
+          <button id="tabLogin" class="font-bold text-white border-b-2 border-white pb-1" data-i18n="tab_login">УВІЙТИ</button>
+          <button id="tabRegister" class="text-neutral-400 hover:text-white pb-1" data-i18n="tab_register">РЕЄСТРАЦІЯ</button>
+        </div>
+        <button id="closeProfileBtn" class="text-neutral-400 hover:text-white btn-spring">[✕]</button>
+      </div>
+
+      <!-- Вхід через Google -->
+      <button class="btn-spring w-full bg-brandElevated border border-brandBorderLight hover:border-white py-2.5 flex items-center justify-center space-x-3 text-white transition-colors">
+        <svg class="w-4 h-4" viewBox="0 0 24 24">
+          <path fill="#EA4335" d="M12 5c1.6 0 3 .6 4.1 1.6l3.1-3.1C17.3 1.7 14.8 1 12 1 7.5 1 3.7 3.6 1.9 7.3l3.7 2.9C6.5 7.2 9 5 12 5z"/>
+          <path fill="#4285F4" d="M23.5 12.3c0-.8-.1-1.6-.2-2.3H12v4.5h6.5c-.3 1.5-1.1 2.8-2.4 3.7l3.7 2.9c2.2-2 3.7-5 3.7-8.8z"/>
+          <path fill="#FBBC05" d="M5.6 14.8c-.2-.7-.4-1.5-.4-2.3s.2-1.6.4-2.3L1.9 7.3C.7 9.7 0 12 0 14.8s.7 5.1 1.9 7.5l3.7-2.9z"/>
+          <path fill="#34A853" d="M12 23c3.2 0 6-1.1 8-3l-3.7-2.9c-1.1.7-2.5 1.2-4.3 1.2-3 0-5.5-2.2-6.4-5.2L1.9 16C3.7 19.7 7.5 23 12 23z"/>
+        </svg>
+        <span data-i18n="auth_google">ПРОДОВЖИТИ З GOOGLE</span>
+      </button>
+
+      <div class="relative flex items-center justify-center border-b border-brandBorder my-2">
+        <span class="bg-brandCard px-3 text-[10px] text-neutral-500 absolute uppercase">OR</span>
+      </div>
+
+      <!-- Форма входу -->
+      <form id="authForm" class="space-y-3 pt-2" onsubmit="event.preventDefault();">
+        <div>
+          <label class="block text-[10px] text-neutral-400 uppercase mb-1" data-i18n="lbl_email">EMAIL АДРЕСА</label>
+          <input type="email" required placeholder="name@domain.com" class="w-full bg-brandBg border border-brandBorder px-3 py-2 text-white placeholder-neutral-600 focus:outline-none focus:border-white text-xs">
+        </div>
+        <div>
+          <label class="block text-[10px] text-neutral-400 uppercase mb-1" data-i18n="lbl_password">ПАРОЛЬ</label>
+          <input type="password" required placeholder="••••••••" class="w-full bg-brandBg border border-brandBorder px-3 py-2 text-white placeholder-neutral-600 focus:outline-none focus:border-white text-xs">
+        </div>
+
+        <button type="submit" id="authSubmitBtn" class="btn-spring w-full bg-white text-black font-sans font-bold py-3 text-xs tracking-widest uppercase mt-4" data-i18n="btn_submit_login">
+          УВІЙТИ В АКАУНТ
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- ================= CART DRAWER ================= -->
+  <div id="cartOverlay" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 transition-opacity duration-300 opacity-0 pointer-events-none"></div>
+
+  <aside id="cartDrawer" class="fixed top-0 right-0 w-full sm:w-[420px] h-full bg-brandCard border-l border-brandBorder z-50 flex flex-col justify-between p-6 transition-transform duration-300 ease-out translate-x-full">
+    
+    <div>
+      <div class="flex items-center justify-between pb-4 border-b border-brandBorder">
+        <h2 class="font-mono text-xs tracking-widest uppercase text-neutral-300">
+          <span data-i18n="cart_title">КОШИК</span> <span class="text-white font-bold">[ <span id="drawerCartCount">0</span> ]</span>
+        </h2>
+        <button id="closeCartBtn" class="btn-spring text-neutral-400 hover:text-white font-mono text-[10px] tracking-widest uppercase">
+          [ <span data-i18n="cart_close">ЗАКРИТИ</span> ✕ ]
+        </button>
+      </div>
+
+      <!-- Індикатор безкоштовної доставки -->
+      <div class="pt-3 font-mono text-[10px]">
+        <div class="flex justify-between text-neutral-400 mb-1">
+          <span id="shippingStatusText" data-i18n="shipping_progress">ДО БЕЗКОШТОВНОЇ ДОСТАВКИ:</span>
+          <span id="shippingRemaining" class="text-white font-bold">3,000 UAH</span>
+        </div>
+        <div class="w-full bg-brandBg h-1 border border-brandBorder overflow-hidden">
+          <div id="shippingProgressBar" class="bg-white h-full transition-all duration-500" style="width: 0%;"></div>
+        </div>
+      </div>
+
+      <div id="cartItemsContainer" class="py-4 space-y-4 max-h-[45vh] overflow-y-auto pr-1"></div>
+    </div>
+
+    <!-- Розрахунок та оформлення -->
+    <div class="space-y-4 pt-4 border-t border-brandBorder font-mono">
+      <div class="space-y-1.5 text-[10px]">
+        <span class="text-neutral-400 block tracking-widest uppercase" data-i18n="shipping_method">СПОСІБ ДОСТАВКИ:</span>
+        <div class="grid grid-cols-2 gap-2">
+          <button id="shipNP" class="btn-spring border border-white bg-white text-black font-bold py-1.5 px-2 text-[9px] uppercase tracking-wider text-center">
+            НОВА ПОШТА
+          </button>
+          <button id="shipDHL" class="btn-spring border border-brandBorder bg-brandBg text-neutral-400 py-1.5 px-2 text-[9px] uppercase tracking-wider text-center hover:text-white">
+            DHL INT
+          </button>
+        </div>
+      </div>
+
+      <div class="text-[11px] space-y-1.5 text-neutral-400">
+        <div class="flex justify-between">
+          <span data-i18n="cart_subtotal">СУМА</span>
+          <span id="subTotalText">0 UAH</span>
+        </div>
+        <div class="flex justify-between">
+          <span data-i18n="cart_shipping">ДОСТАВКА</span>
+          <span id="shippingCostText">0 UAH</span>
+        </div>
+        <div class="flex justify-between text-xs text-white font-bold pt-2 border-t border-brandBorder/40">
+          <span data-i18n="cart_total">РАЗОМ ДО СПЛАТИ</span>
+          <span id="totalText">0 UAH</span>
+        </div>
+      </div>
+
+      <div class="space-y-2">
+        <button class="btn-spring w-full bg-white text-black font-sans font-black py-3 text-xs tracking-widest uppercase border border-white" data-i18n="btn_checkout">
+          ОФОРМИТИ ЗАМОВЛЕННЯ
+        </button>
+        <button class="btn-spring w-full bg-brandBg border border-brandBorder text-neutral-300 font-mono py-2 text-[10px] tracking-widest uppercase hover:text-white">
+           PAY / GOOGLE PAY
+        </button>
+      </div>
+    </div>
+
+  </aside>
+
+  <!-- ================= JAVASCRIPT ================= -->
+  <script>
+    // --- ДИКТИОНАРІ ПЕРЕКЛАДУ (i18n) ---
+    const i18nData = {
+      UA: {
+        nav_catalog: "КАТАЛОГ",
+        nav_archive: "АРХІВ",
+        btn_profile: "ПРОФІЛЬ",
+        btn_cart: "КОШИК",
+        hero_drop_tag: "// DROP 01 / KYIV FOUNDATIONS",
+        hero_fabric_specs: "HEAVYWEIGHT 240 GSM COTTON / OVERSIZED FIT",
+        btn_explore: "ПЕРЕГЛЯНУТИ ДРОП ↓",
+        product_desc: "100% Важка бавовна (240 GSM). Шовкотрафаретний друк високої щільності. Вільний крій Oversize. Зроблено в Києві.",
+        label_select_size: "ОБЕРІТЬ РОЗМІР:",
+        label_size_guide: "[ РАЗМІРНА СІТКА ]",
+        btn_add_to_cart: "ДОДАТИ В КОШИК",
+        ph_email: "ВВЕДІТЬ EMAIL",
+        btn_subscribe: "ПІДПИСАТИСЬ",
+        ft_about: "ПРО БРЕНД",
+        ft_contacts: "КОНТАКТИ",
+        ft_delivery: "ДОСТАВКА",
+        ft_returns: "ПОВЕРНЕННЯ",
+        tab_login: "УВІЙТИ",
+        tab_register: "РЕЄСТРАЦІЯ",
+        auth_google: "ПРОДОВЖИТИ З GOOGLE",
+        lbl_email: "EMAIL АДРЕСА",
+        lbl_password: "ПАРОЛЬ",
+        btn_submit_login: "УВІЙТИ В АКАУНТ",
+        btn_submit_register: "СТВОРИТИ АКАУНТ",
+        cart_title: "КОШИК",
+        cart_close: "ЗАКРИТИ",
+        shipping_progress: "ДО БЕЗКОШТОВНОЇ ДОСТАВКИ:",
+        shipping_method: "СПОСІБ ДОСТАВКИ:",
+        cart_subtotal: "СУМА",
+        cart_shipping: "ДОСТАВКА",
+        cart_total: "РАЗОМ ДО СПЛАТИ",
+        btn_checkout: "ОФОРМИТИ ЗАМОВЛЕННЯ",
+        cart_empty: "КОШИК ПОРОЖНІЙ",
+        free_ship_congrats: "БЕЗКОШТОВНА ДОСТАВКА!",
+        free_label: "БЕЗКОШТОВНО"
+      },
+      EN: {
+        nav_catalog: "CATALOG",
+        nav_archive: "ARCHIVE",
+        btn_profile: "PROFILE",
+        btn_cart: "CART",
+        hero_drop_tag: "// DROP 01 / KYIV FOUNDATIONS",
+        hero_fabric_specs: "HEAVYWEIGHT 240 GSM COTTON / OVERSIZED FIT",
+        btn_explore: "EXPLORE DROP ↓",
+        product_desc: "100% Heavyweight Cotton (240 GSM). High-Density Screen Print. Oversized Fit. Crafted in Kyiv.",
+        label_select_size: "SELECT SIZE:",
+        label_size_guide: "[ SIZE GUIDE ]",
+        btn_add_to_cart: "ADD TO CART",
+        ph_email: "ENTER EMAIL",
+        btn_subscribe: "SUBSCRIBE",
+        ft_about: "ABOUT",
+        ft_contacts: "CONTACTS",
+        ft_delivery: "SHIPPING",
+        ft_returns: "RETURNS",
+        tab_login: "LOG IN",
+        tab_register: "REGISTER",
+        auth_google: "CONTINUE WITH GOOGLE",
+        lbl_email: "EMAIL ADDRESS",
+        lbl_password: "PASSWORD",
+        btn_submit_login: "LOG IN TO ACCOUNT",
+        btn_submit_register: "CREATE ACCOUNT",
+        cart_title: "CART",
+        cart_close: "CLOSE",
+        shipping_progress: "FREE SHIPPING IN:",
+        shipping_method: "SHIPPING METHOD:",
+        cart_subtotal: "SUB-TOTAL",
+        cart_shipping: "SHIPPING",
+        cart_total: "TOTAL",
+        btn_checkout: "CHECKOUT NOW",
+        cart_empty: "CART IS EMPTY",
+        free_ship_congrats: "FREE SHIPPING UNLOCKED!",
+        free_label: "FREE"
+      }
+    };
+
+    // --- ГЛОБАЛЬНИЙ СТАН ---
+    let currentLang = 'UA';
+    let currentCurr = 'UAH'; // 'UAH' або 'EUR'
+    const EUR_RATE = 45; // 1 EUR = 45 UAH
+    let selectedSize = 'L';
+    let cartItems = [];
+    let baseShippingCostUAH = 100;
+
+    // --- ВАЛЮТНИЙ ФОРМАТТЕР ---
+    function formatMoney(amountUAH) {
+      if (currentCurr === 'EUR') {
+        const eur = Math.round(amountUAH / EUR_RATE);
+        return `${eur} €`;
+      }
+      return `${amountUAH.toLocaleString()} UAH`;
+    }
+
+    // --- УПРАВЛІННЯ МОВОЮ ---
+    const langSwitcher = document.getElementById('langSwitcher');
+    const langSlider = document.getElementById('langSlider');
+    const langUA = document.getElementById('langUA');
+    const langEN = document.getElementById('langEN');
+
+    langSwitcher.addEventListener('click', () => {
+      currentLang = currentLang === 'UA' ? 'EN' : 'UA';
+      
+      // Анімація ползунка
+      if (currentLang === 'EN') {
+        langSlider.style.transform = 'translateX(28px)';
+        langUA.className = 'relative z-10 w-1/2 text-center font-bold text-[9px] text-neutral-400 transition-colors';
+        langEN.className = 'relative z-10 w-1/2 text-center font-bold text-[9px] text-black transition-colors';
+      } else {
+        langSlider.style.transform = 'translateX(0px)';
+        langEN.className = 'relative z-10 w-1/2 text-center font-bold text-[9px] text-neutral-400 transition-colors';
+        langUA.className = 'relative z-10 w-1/2 text-center font-bold text-[9px] text-black transition-colors';
+      }
+
+      updateLanguageText();
+      renderCart();
+    });
+
+    function updateLanguageText() {
+      const dict = i18nData[currentLang];
+      
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        if (dict[key]) el.innerText = dict[key];
+      });
+
+      document.querySelectorAll('[data-i18n-ph]').forEach(el => {
+        const key = el.getAttribute('data-i18n-ph');
+        if (dict[key]) el.placeholder = dict[key];
+      });
+    }
+
+    // --- УПРАВЛІННЯ ВАЛЮТОЮ ---
+    const currBtn = document.getElementById('currBtn');
+    currBtn.addEventListener('click', () => {
+      currentCurr = currentCurr === 'UAH' ? 'EUR' : 'UAH';
+      currBtn.innerText = currentCurr === 'UAH' ? 'UAH (₴)' : 'EUR (€)';
+      
+      // Оновлюємо ціни на сторінці та в кошику
+      document.querySelectorAll('.main-product-price').forEach(el => {
+        el.innerText = formatMoney(2400);
+      });
+
+      renderCart();
+    });
+
+    // --- УПРАВЛІННЯ ПРОФІЛЕМ (MODAL) ---
+    const openProfileBtn = document.getElementById('openProfileBtn');
+    const closeProfileBtn = document.getElementById('closeProfileBtn');
+    const profileOverlay = document.getElementById('profileOverlay');
+    const tabLogin = document.getElementById('tabLogin');
+    const tabRegister = document.getElementById('tabRegister');
+    const authSubmitBtn = document.getElementById('authSubmitBtn');
+    let isLoginTab = true;
+
+    function openProfile() {
+      profileOverlay.classList.remove('opacity-0', 'pointer-events-none');
+    }
+
+    function closeProfile() {
+      profileOverlay.classList.add('opacity-0', 'pointer-events-none');
+    }
+
+    openProfileBtn.addEventListener('click', openProfile);
+    closeProfileBtn.addEventListener('click', closeProfile);
+    profileOverlay.addEventListener('click', (e) => {
+      if (e.target === profileOverlay) closeProfile();
+    });
+
+    tabLogin.addEventListener('click', () => {
+      isLoginTab = true;
+      tabLogin.className = 'font-bold text-white border-b-2 border-white pb-1';
+      tabRegister.className = 'text-neutral-400 hover:text-white pb-1';
+      authSubmitBtn.innerText = i18nData[currentLang].btn_submit_login;
+    });
+
+    tabRegister.addEventListener('click', () => {
+      isLoginTab = false;
+      tabRegister.className = 'font-bold text-white border-b-2 border-white pb-1';
+      tabLogin.className = 'text-neutral-400 hover:text-white pb-1';
+      authSubmitBtn.innerText = i18nData[currentLang].btn_submit_register;
+    });
+
+    // --- УПРАВЛІННЯ КОШИКОМ ---
+    const openCartBtn = document.getElementById('openCartBtn');
+    const closeCartBtn = document.getElementById('closeCartBtn');
+    const cartDrawer = document.getElementById('cartDrawer');
+    const cartOverlay = document.getElementById('cartOverlay');
+    const addToCartMainBtn = document.getElementById('addToCartMainBtn');
+    
+    const headerCartCount = document.getElementById('headerCartCount');
+    const drawerCartCount = document.getElementById('drawerCartCount');
+    const cartItemsContainer = document.getElementById('cartItemsContainer');
+
+    const subTotalText = document.getElementById('subTotalText');
+    const shippingCostText = document.getElementById('shippingCostText');
+    const totalText = document.getElementById('totalText');
+    const shippingRemaining = document.getElementById('shippingRemaining');
+    const shippingProgressBar = document.getElementById('shippingProgressBar');
+
+    function openCart() {
+      cartDrawer.classList.remove('translate-x-full');
+      cartOverlay.classList.remove('opacity-0', 'pointer-events-none');
+    }
+
+    function closeCart() {
+      cartDrawer.classList.add('translate-x-full');
+      cartOverlay.classList.add('opacity-0', 'pointer-events-none');
+    }
+
+    openCartBtn.addEventListener('click', openCart);
+    closeCartBtn.addEventListener('click', closeCart);
+    cartOverlay.addEventListener('click', closeCart);
+
+    // Выбор размера
+    const sizeButtons = document.querySelectorAll('#sizeSelector .size-btn');
+    sizeButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        sizeButtons.forEach(b => b.className = 'size-btn btn-spring border border-brandBorder bg-brandBg py-2 text-[11px] text-neutral-300 hover:border-white');
+        btn.className = 'size-btn btn-spring border border-white bg-white text-black font-bold py-2 text-[11px]';
+        selectedSize = btn.getAttribute('data-size');
+      });
+    });
+
+    // Добавление товара
+    addToCartMainBtn.addEventListener('click', () => {
+      const existing = cartItems.find(i => i.size === selectedSize);
+      if (existing) {
+        existing.qty += 1;
+      } else {
+        cartItems.push({ name: 'ST. OLGA / KYIV TEE', priceUAH: 2400, size: selectedSize, qty: 1 });
+      }
+      renderCart();
+      openCart();
+    });
+
+    function renderCart() {
+      const dict = i18nData[currentLang];
+      const totalQty = cartItems.reduce((acc, i) => acc + i.qty, 0);
+      headerCartCount.innerText = totalQty;
+      drawerCartCount.innerText = totalQty;
+
+      if (cartItems.length === 0) {
+        cartItemsContainer.innerHTML = `
+          <div class="text-center py-10 font-mono text-[11px] text-neutral-500 uppercase tracking-widest">
+            ${dict.cart_empty}
+          </div>
+        `;
+      } else {
+        cartItemsContainer.innerHTML = cartItems.map((item, index) => `
+          <div class="flex space-x-3 pb-4 border-b border-brandBorder/60 font-mono text-[11px]">
+            <div class="w-16 h-20 bg-brandBg border border-brandBorder flex-shrink-0 flex items-center justify-center p-2">
+              <svg class="w-8 h-8 text-neutral-500" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+              </svg>
+            </div>
+            <div class="flex-1 flex flex-col justify-between">
+              <div>
+                <div class="flex justify-between items-start">
+                  <h3 class="font-bold text-white tracking-wider uppercase">${item.name}</h3>
+                  <button onclick="removeItem(${index})" class="btn-spring text-neutral-500 hover:text-white text-[10px]">[✕]</button>
+                </div>
+                <p class="text-neutral-400 mt-0.5">SIZE: ${item.size}</p>
+              </div>
+              <div class="flex justify-between items-center mt-2">
+                <div class="flex items-center border border-brandBorder bg-brandBg">
+                  <button onclick="changeQty(${index}, -1)" class="btn-spring px-2 py-0.5 text-neutral-400 hover:text-white">-</button>
+                  <span class="px-2 py-0.5 text-white border-x border-brandBorder font-bold text-[10px]">${item.qty}</span>
+                  <button onclick="changeQty(${index}, 1)" class="btn-spring px-2 py-0.5 text-neutral-400 hover:text-white">+</button>
+                </div>
+                <span class="font-bold text-white tracking-wider">${formatMoney(item.priceUAH * item.qty)}</span>
+              </div>
+            </div>
+          </div>
+        `).join('');
+      }
+
+      updateTotals();
+    }
+
+    function changeQty(index, delta) {
+      cartItems[index].qty += delta;
+      if (cartItems[index].qty <= 0) cartItems.splice(index, 1);
+      renderCart();
+    }
+
+    function removeItem(index) {
+      cartItems.splice(index, 1);
+      renderCart();
+    }
+
+    function updateTotals() {
+      const dict = i18nData[currentLang];
+      const subtotalUAH = cartItems.reduce((acc, item) => acc + (item.priceUAH * item.qty), 0);
+      const freeThresholdUAH = 3000;
+
+      if (subtotalUAH >= freeThresholdUAH) {
+        shippingRemaining.innerText = dict.free_ship_congrats;
+        shippingProgressBar.style.width = '100%';
+        shippingCostText.innerText = dict.free_label;
+      } else {
+        const remainingUAH = freeThresholdUAH - subtotalUAH;
+        shippingRemaining.innerText = formatMoney(remainingUAH);
+        shippingProgressBar.style.width = `${(subtotalUAH / freeThresholdUAH) * 100}%`;
+        shippingCostText.innerText = subtotalUAH === 0 ? formatMoney(0) : formatMoney(baseShippingCostUAH);
+      }
+
+      const activeShippingUAH = (subtotalUAH >= freeThresholdUAH || subtotalUAH === 0) ? 0 : baseShippingCostUAH;
+      const grandTotalUAH = subtotalUAH + activeShippingUAH;
+
+      subTotalText.innerText = formatMoney(subtotalUAH);
+      totalText.innerText = formatMoney(grandTotalUAH);
+    }
+
+    // Способы доставки
+    const shipNP = document.getElementById('shipNP');
+    const shipDHL = document.getElementById('shipDHL');
+
+    shipNP.addEventListener('click', () => {
+      baseShippingCostUAH = 100;
+      shipNP.className = 'btn-spring border border-white bg-white text-black font-bold py-1.5 px-2 text-[9px] uppercase tracking-wider text-center';
+      shipDHL.className = 'btn-spring border border-brandBorder bg-brandBg text-neutral-400 py-1.5 px-2 text-[9px] uppercase tracking-wider text-center hover:text-white';
+      updateTotals();
+    });
+
+    shipDHL.addEventListener('click', () => {
+      baseShippingCostUAH = 900;
+      shipDHL.className = 'btn-spring border border-white bg-white text-black font-bold py-1.5 px-2 text-[9px] uppercase tracking-wider text-center';
+      shipNP.className = 'btn-spring border border-brandBorder bg-brandBg text-neutral-400 py-1.5 px-2 text-[9px] uppercase tracking-wider text-center hover:text-white';
+      updateTotals();
+    });
+
+    // Инициализация
+    updateLanguageText();
+    renderCart();
+  </script>
+
+</body>
+</html>
