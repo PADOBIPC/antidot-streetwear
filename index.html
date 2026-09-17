@@ -18,15 +18,168 @@
 .cart-input{width:100%;border:1px solid #303030;background:#101010;padding:12px;color:#fff;font-size:12px;outline:none;transition:border-color .2s ease,background-color .2s ease}.cart-input::placeholder{color:#666}.cart-input:focus{border-color:#f5f5f5;background:#181818}.cart-input.invalid{border-color:#ff3b30}
 /* Mobile-only refinements. Desktop rules above remain unchanged. */
 @media(max-width:640px){
- body{min-width:320px}.header-logo{font-size:1.35rem}.header-actions{gap:.3rem}.header-actions .currency{display:none}.header-actions #cartOpen{padding-left:10px;padding-right:10px;font-size:9px}.lang-toggle{width:70px}
- header{height:64px;padding-left:12px;padding-right:12px}.header-logo{max-width:42vw;white-space:nowrap;overflow:hidden}.header-actions{margin-left:auto}
- main#top{padding-top:0}.hero-mobile-hidden{display:none}.mobile-no-hover{pointer-events:none}
- .product-image .back{opacity:0}.product-image:active .front{opacity:0}.product-image:active .back{opacity:1}
- .mobile-tight{letter-spacing:-.08em}.mobile-scroll-x{overflow-x:auto;scrollbar-width:none}.mobile-scroll-x::-webkit-scrollbar{display:none}
- #toast{left:12px;right:12px;bottom:16px;text-align:center;max-width:none}
- #drawer{padding:16px;padding-bottom:calc(16px + env(safe-area-inset-bottom));border-left:0;width:100%;max-width:none}.cart-input{font-size:16px;padding:13px}.radio>div{min-height:48px;align-items:center}.qty{width:36px!important;height:36px!important}.radio span{line-height:1.35}.payment-mobile{grid-template-columns:1fr!important}
+  body{
+    min-width:320px;
+  }
+
+  header{
+    height:64px;
+    padding-left:12px;
+    padding-right:12px;
+  }
+
+  /*
+    На телефоне логотип больше не absolute:
+    он занимает собственное место и не пересекается
+    с переключателем языка и корзиной.
+  */
+  .header-logo{
+    position:static;
+    transform:none;
+    left:auto;
+    font-size:1.35rem;
+    max-width:none;
+    margin-right:auto;
+    white-space:nowrap;
+    overflow:visible;
+    flex:0 0 auto;
+
+    /* возвращаем исходное расстояние между буквами */
+    letter-spacing:-.11em;
+  }
+
+  .header-actions{
+    display:flex;
+    align-items:center;
+    gap:.4rem;
+    margin-left:12px;
+    flex:0 0 auto;
+  }
+
+  .header-actions .currency{
+    display:none;
+  }
+
+  .lang-toggle{
+    width:70px;
+    flex:0 0 70px;
+  }
+
+  .header-actions #cartOpen{
+    padding-left:10px;
+    padding-right:10px;
+    font-size:9px;
+    white-space:nowrap;
+  }
+
+  main#top{
+    padding-top:0;
+  }
+
+  .hero-mobile-hidden{
+    display:none;
+  }
+
+  .mobile-no-hover{
+    pointer-events:none;
+  }
+
+  .product-image .back{
+    opacity:0;
+  }
+
+  .product-image:active .front{
+    opacity:0;
+  }
+
+  .product-image:active .back{
+    opacity:1;
+  }
+
+  .mobile-tight{
+    letter-spacing:-.08em;
+  }
+
+  .mobile-scroll-x{
+    overflow-x:auto;
+    scrollbar-width:none;
+  }
+
+  .mobile-scroll-x::-webkit-scrollbar{
+    display:none;
+  }
+
+  #toast{
+    left:12px;
+    right:12px;
+    bottom:16px;
+    text-align:center;
+    max-width:none;
+  }
+
+  #drawer{
+    padding:16px;
+    padding-bottom:calc(16px + env(safe-area-inset-bottom));
+    border-left:0;
+    width:100%;
+    max-width:none;
+  }
+
+  .cart-input{
+    font-size:16px;
+    padding:13px;
+  }
+
+  .radio>div{
+    min-height:48px;
+    align-items:center;
+  }
+
+  .qty{
+    width:36px!important;
+    height:36px!important;
+  }
+
+  .radio span{
+    line-height:1.35;
+  }
+
+  .payment-mobile{
+    grid-template-columns:1fr!important;
+  }
 }
-@media(max-width:380px){.header-logo{font-size:1.15rem}.header-actions #cartOpen{padding-left:8px;padding-right:8px}.lang-toggle{width:64px}.lang-toggle:before{width:28px}.lang-toggle.en:before{transform:translateX(29px)}}
+
+@media(max-width:380px){
+  .header-logo{
+    font-size:1.15rem;
+
+    /* логотип остаётся раздельным, как в исходной версии */
+    letter-spacing:-.11em;
+  }
+
+  .header-actions{
+    margin-left:8px;
+    gap:.3rem;
+  }
+
+  .header-actions #cartOpen{
+    padding-left:8px;
+    padding-right:8px;
+  }
+
+  .lang-toggle{
+    width:64px;
+    flex-basis:64px;
+  }
+
+  .lang-toggle:before{
+    width:28px;
+  }
+
+  .lang-toggle.en:before{
+    transform:translateX(29px);
+  }
+}
 @media(hover:none){.interactive:hover{transform:none;filter:none}.product-image:hover .front{opacity:1;transform:none}.product-image:hover .back{opacity:0;transform:none}}
 </style>
 </head>
