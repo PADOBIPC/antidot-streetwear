@@ -1,375 +1,57 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="uk" class="dark">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ANTIDOT — Luxury Streetwear</title>
+  <meta name="description" content="ANTIDOT — independent Kyiv streetwear. Heavyweight essentials, limited drops.">
+  <title>ANTIDOT — No Cure For Ordinary</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800;900&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
-  <script>
-    tailwind.config = {
-      darkMode: 'class',
-      theme: { extend: {
-        fontFamily: { sans: ['Inter', 'sans-serif'], mono: ['JetBrains Mono', 'monospace'] },
-        colors: { brandBg:'#141414', brandCard:'#1e1e1e', brandElevated:'#252525', brandBorder:'#2d2d2d', brandBorderLight:'#3d3d3d', brandHeader:'#1a1a1a' }
-      }}
-    };
-  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;800;900&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
+  <script>tailwind.config={theme:{extend:{fontFamily:{sans:['Inter','sans-serif'],mono:['JetBrains Mono','monospace']},colors:{blackout:'#090909',panel:'#151515',line:'#303030',acid:'#d8ff00',red:'#ff3b30'}}}};</script>
   <style>
-    html { scroll-behavior:smooth; }
-    ::-webkit-scrollbar { width:8px; }
-    ::-webkit-scrollbar-track { background:#141414; }
-    ::-webkit-scrollbar-thumb { background:#3d3d3d; border-radius:4px; }
-    .btn-spring { transition:transform .2s cubic-bezier(.25,1,.5,1),background-color .2s ease,border-color .2s ease,color .2s ease; }
-    .btn-spring:hover { transform:scale(1.02); }
-    .btn-spring:active { transform:scale(.97); }
-    .card-hover { transition:border-color .25s ease,transform .25s ease; }
-    .card-hover:hover { border-color:#4a4a4a; transform:translateY(-2px); }
-    .header-center { position:absolute; left:50%; transform:translateX(-50%); }
-    .shirt-image-swap { position:relative; overflow:hidden; }
-    .shirt-image-swap img { position:absolute; inset:0; width:100%; height:100%; object-fit:contain; transition:opacity .3s ease,transform .3s ease; }
-    .shirt-image-swap .shirt-front { opacity:1; }
-    .shirt-image-swap .shirt-back { opacity:0; }
-    .shirt-image-swap:hover .shirt-front { opacity:0; transform:scale(1.04); }
-    .shirt-image-swap:hover .shirt-back { opacity:1; transform:scale(1.04); }
-    .toast { animation:slideInUp .3s ease-out; }
-    @keyframes slideInUp { from { transform:translateY(100px);opacity:0 } to { transform:translateY(0);opacity:1 } }
-
-    .field { width:100%; background:#111111; border:1px solid #3a3a3a; color:#fff; padding:0.8rem 0.9rem; font-size:13px; outline:none; transition:border-color .2s ease, box-shadow .2s ease; }
-    .field:focus { border-color:#fff; box-shadow:0 0 0 2px rgba(255,255,255,0.08); }
-    .field.invalid { border-color:#f87171; box-shadow:0 0 0 2px rgba(248,113,113,0.08); }
-    .field-label { display:block; margin-bottom:0.55rem; color:#9ca3af; font-family:'JetBrains Mono', monospace; font-size:10px; letter-spacing:0.14em; text-transform:uppercase; }
-    .field-note { display:none; margin-top:0.35rem; color:#fca5a5; font-family:'JetBrains Mono', monospace; font-size:10px; }
-    .has-error .field-note { display:block; }
-    .radio-card input:checked + div { background:#fff; color:#111; border-color:#fff; }
-    .radio-card input:checked + div .radio-dot { background:#111; border-color:#111; }
-    .radio-dot { width:12px; height:12px; border:1px solid #767676; border-radius:50%; display:inline-block; }
+    :root{color-scheme:dark}*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:#090909;color:#f5f5f5}::selection{background:#d8ff00;color:#090909}::-webkit-scrollbar{width:8px}::-webkit-scrollbar-track{background:#090909}::-webkit-scrollbar-thumb{background:#454545;border-radius:8px}
+    .cut{clip-path:polygon(0 0,calc(100% - 16px) 0,100% 16px,100% 100%,16px 100%,0 calc(100% - 16px))}.cut-sm{clip-path:polygon(0 0,calc(100% - 9px) 0,100% 9px,100% 100%,9px 100%,0 calc(100% - 9px))}.outline{border:1px solid #303030}.interactive{transition:transform .2s ease,background-color .2s ease,border-color .2s ease,color .2s ease,filter .2s ease}.interactive:hover{transform:translateY(-2px);filter:brightness(1.1)}.interactive:active{transform:scale(.97)}
+    .product-image{position:relative;overflow:hidden;background:#202020}.product-image img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;transition:opacity .4s ease,transform .5s ease}.product-image .back{opacity:0}.product-image:hover .front{opacity:0;transform:scale(1.04)}.product-image:hover .back{opacity:1;transform:scale(1.04)}
+    .lang-toggle{position:relative;width:78px;height:32px;padding:3px;border:1px solid #4b4b4b;border-radius:999px;background:#242424;display:flex;align-items:center;font:700 9px 'JetBrains Mono',monospace;letter-spacing:.08em}.lang-toggle span{position:relative;z-index:1;width:50%;text-align:center;transition:color .2s}.lang-toggle:before{content:'';position:absolute;left:3px;top:3px;width:34px;height:24px;border-radius:999px;background:#fff;transition:transform .25s cubic-bezier(.25,1,.5,1)}.lang-toggle.en:before{transform:translateX(35px)}.lang-toggle.en #langUA,.lang-toggle:not(.en) #langEN{color:#888}.lang-toggle.en #langEN,.lang-toggle:not(.en) #langUA{color:#111}
+    .ticker{overflow:hidden;white-space:nowrap}.ticker-track{display:inline-block;animation:ticker 24s linear infinite}@keyframes ticker{to{transform:translateX(-50%)}}
+    .radio input:checked+div{background:#f5f5f5;color:#090909;border-color:#f5f5f5}.radio input:checked+div i{background:#090909}.radio i{width:11px;height:11px;border:1px solid #777;border-radius:50%;display:block}.toast-in{animation:toast-in .25s ease}@keyframes toast-in{from{opacity:0;transform:translateY(15px)}to{opacity:1;transform:none}}
+    @media(max-width:640px){.header-logo{font-size:1.35rem}.header-actions{gap:.3rem}.header-actions .currency{display:none}}
   </style>
 </head>
-<body class="bg-brandBg text-white font-sans antialiased selection:bg-white selection:text-black overflow-x-hidden">
-  <div id="notificationToast" class="fixed bottom-6 right-6 z-[60] bg-white text-black px-6 py-3 rounded-lg font-mono text-sm font-bold shadow-lg toast hidden"><span id="toastMessage"></span></div>
-
-  <header class="fixed top-0 left-0 w-full z-40 bg-brandHeader/95 backdrop-blur-md border-b border-brandBorder px-4 lg:px-8 py-4 flex items-center justify-between">
-    <nav class="hidden md:flex items-center space-x-4 text-[11px] font-mono tracking-widest text-neutral-400">
-      <a href="#drop" data-i18n="nav_catalog" class="hover:text-white btn-spring inline-block">КАТАЛОГ</a><span class="text-neutral-700">/</span>
-      <a href="#coming-soon" data-i18n="nav_coming" class="hover:text-white btn-spring inline-block">СКОРО...</a>
-    </nav>
-    <div class="header-center text-2xl md:text-3xl font-black tracking-tighter uppercase"><a href="#" class="hover:text-neutral-300 btn-spring inline-block">ANTIDOT</a></div>
-    <div class="flex items-center space-x-2 sm:space-x-4 text-[11px] font-mono tracking-widest">
-      <button id="currencyButton" class="btn-spring bg-brandCard border border-brandBorder px-2.5 py-1 text-neutral-300 hover:text-white text-[10px] font-bold">UAH (₴)</button>
-      <button id="languageButton" class="btn-spring bg-brandCard border border-brandBorder px-2.5 py-1 text-neutral-300 hover:text-white text-[10px] font-bold">UA / EN</button>
-      <button id="profileButton" class="hidden sm:block btn-spring bg-brandCard border border-brandBorder text-neutral-300 hover:text-white px-3 py-1 uppercase text-[10px] font-bold" data-i18n="profile">ПРОФІЛЬ</button>
-      <button id="cartButton" class="btn-spring bg-white text-black font-bold px-3 py-1 uppercase tracking-wider text-[10px] border border-white"><span data-i18n="cart">КОШИК</span> (<span id="cartCount">0</span>)</button>
-    </div>
+<body class="font-sans antialiased overflow-x-hidden">
+  <div id="toast" class="hidden fixed z-[90] bottom-5 right-5 max-w-[calc(100vw-2rem)] bg-white text-black px-5 py-3 cut-sm font-mono text-xs font-bold shadow-2xl"></div>
+  <header class="fixed z-50 top-0 w-full h-[72px] px-4 md:px-8 flex items-center justify-between bg-blackout/90 backdrop-blur-md border-b border-line">
+    <nav class="hidden md:flex items-center gap-5 font-mono text-[10px] tracking-[.2em] text-neutral-400"><a href="#drop" class="hover:text-white" data-i18n="catalog">КАТАЛОГ</a><b class="text-neutral-700">/</b><a href="#next" class="hover:text-white" data-i18n="next">СКОРО</a></nav>
+    <a href="#top" class="header-logo absolute left-1/2 -translate-x-1/2 text-2xl md:text-3xl font-black tracking-[-.11em]">ANTIDOT<span class="text-red">.</span></a>
+    <div class="header-actions flex items-center gap-2"><button id="currency" class="currency interactive rounded-full outline bg-panel px-3 py-2 font-mono text-[10px]">UAH (₴)</button><button id="language" class="lang-toggle" aria-label="Change language"><span id="langUA">UA</span><span id="langEN">EN</span></button><button id="cartOpen" class="interactive cut-sm bg-white text-black px-4 py-2 font-mono text-[10px] font-bold"><span data-i18n="cart">КОШИК</span> (<span id="count">0</span>)</button></div>
   </header>
-
-  <main>
-    <section class="min-h-[85vh] pt-28 pb-12 px-6 flex flex-col items-center justify-center border-b border-brandBorder bg-gradient-to-b from-brandBg via-brandCard to-brandBg">
-      <div class="text-center space-y-1 mb-4"><span class="font-mono text-[10px] text-neutral-400 uppercase tracking-widest">// DROP 01 / KYIV FOUNDATIONS</span><h1 class="text-3xl md:text-5xl font-black tracking-tighter uppercase">ST. OLGA TEE</h1></div>
-      <div class="relative w-full max-w-sm aspect-square bg-brandCard border border-brandBorder shadow-xl flex flex-col items-center justify-center p-6 card-hover my-3">
-        <div class="shirt-image-swap w-40 h-48 bg-brandElevated border border-brandBorderLight shadow-inner">
-          <img src="front.png" alt="ST. OLGA TEE front" class="shirt-front"><img src="back.png" alt="ST. OLGA TEE back" class="shirt-back">
-          <div class="absolute bottom-2 left-0 right-0 text-center pointer-events-none"><span class="block font-mono text-[10px] text-white font-bold">ST. OLGA TEE</span><span class="block font-mono text-[9px] text-neutral-400">HEAVYWEIGHT 240 GSM</span></div>
-        </div>
-        <p class="font-mono text-[11px] text-neutral-400 mt-4 tracking-widest uppercase text-center">HEAVYWEIGHT 240 GSM COTTON / OVERSIZED FIT</p>
-      </div>
-      <a href="#drop" class="btn-spring border border-brandBorderLight bg-brandCard hover:bg-white hover:text-black px-6 py-2.5 font-mono text-[11px] tracking-widest uppercase mt-3">ПЕРЕГЛЯНУТИ ДРОП</a>
-    </section>
-
-    <section id="drop" class="py-14 px-6 lg:px-12 max-w-6xl mx-auto border-b border-brandBorder">
-      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
-        <div class="bg-brandCard border border-brandBorder aspect-[4/5] p-4 card-hover relative overflow-hidden"><div class="shirt-image-swap w-full h-full bg-brandElevated border border-brandBorder"><img src="front.png" alt="ST. OLGA TEE front" class="shirt-front"><img src="back.png" alt="ST. OLGA TEE back" class="shirt-back"><div class="absolute top-4 left-4 font-mono text-[10px] text-neutral-400">ANTIDOT / 001</div></div></div>
-        <div class="space-y-6 font-mono bg-brandCard p-6 border border-brandBorder card-hover">
-          <div><span class="text-[10px] text-neutral-500 uppercase tracking-widest">// DROP 01 / ITEM 01</span><h2 class="text-2xl font-sans font-black tracking-tight uppercase mt-1">ST. OLGA / KYIV TEE</h2></div>
-          <div class="text-2xl font-bold tracking-wider product-price">2,400 UAH</div>
-          <div class="space-y-2 pt-3 border-t border-brandBorder">
-            <div class="flex justify-between text-[11px] text-neutral-400"><span data-i18n="selectSize">ОБЕРІТЬ РОЗМІР:</span><span id="selectedSizeLabel">L</span></div>
-            <div class="flex gap-2">
-              <button class="size-btn btn-spring border border-brandBorder bg-brandElevated px-4 py-2 text-xs" data-size="S">S</button>
-              <button class="size-btn btn-spring border border-brandBorder bg-brandElevated px-4 py-2 text-xs" data-size="M">M</button>
-              <button class="size-btn btn-spring border border-brandBorder bg-white text-black px-4 py-2 text-xs" data-size="L">L</button>
-              <button class="size-btn btn-spring border border-brandBorder bg-brandElevated px-4 py-2 text-xs" data-size="XL">XL</button>
-            </div>
-          </div>
-          <button id="addToCart" class="btn-spring w-full bg-white text-black font-sans font-black py-3 text-xs tracking-widest uppercase" data-i18n="add">ДОДАТИ В КОШИК</button>
-        </div>
-      </div>
-    </section>
-
-    <section id="coming-soon" class="py-16 px-6 lg:px-12 max-w-6xl mx-auto border-b border-brandBorder"><div class="text-center space-y-8"><div><span class="font-mono text-[10px] text-neutral-400 uppercase tracking-widest">// NEXT CHAPTERS</span><h2 class="text-3xl font-black uppercase tracking-tight mt-2">НАСТУПНІ КОЛЕКЦІЇ</h2></div><div class="grid grid-cols-1 md:grid-cols-3 gap-4"><div class="bg-brandElevated border border-brandBorder p-8 flex flex-col items-center justify-center aspect-square card-hover"><span class="font-mono text-5xl text-neutral-700">02</span><span class="font-mono text-[10px] text-neutral-500 uppercase tracking-widest mt-4">COMING SOON</span></div><div class="bg-brandElevated border border-brandBorder p-8 flex flex-col items-center justify-center aspect-square card-hover"><span class="font-mono text-5xl text-neutral-700">03</span><span class="font-mono text-[10px] text-neutral-500 uppercase tracking-widest mt-4">IN DEVELOPMENT</span></div><div class="bg-brandElevated border border-brandBorder p-8 flex flex-col items-center justify-center aspect-square card-hover"><span class="font-mono text-5xl text-neutral-700">04</span><span class="font-mono text-[10px] text-neutral-500 uppercase tracking-widest mt-4">IN DEVELOPMENT</span></div></div></div></section>
+  <main id="top">
+    <section class="min-h-screen pt-28 pb-14 px-4 md:px-10 flex items-center border-b border-line relative overflow-hidden"><div class="absolute -right-16 top-32 text-[15rem] md:text-[26rem] font-black leading-none text-white/[.025] select-none">01</div><div class="max-w-7xl w-full mx-auto grid lg:grid-cols-[.78fr_1.42fr] gap-8 items-end relative"><div class="order-2 lg:order-1"><p class="font-mono text-[10px] tracking-[.25em] text-acid mb-5">// DROP 01 / KYIV FOUNDATIONS</p><h1 class="text-[clamp(3.4rem,10vw,9rem)] leading-[.78] font-black tracking-[-.11em] uppercase">ST.<br>OLGA<br><span class="text-transparent" style="-webkit-text-stroke:1px #f5f5f5">TEE</span></h1><p class="font-mono text-xs text-neutral-400 leading-6 max-w-xs mt-8" data-i18n="heroMeta">240 GSM HEAVYWEIGHT COTTON<br>OVERSIZED CUT / MADE IN KYIV</p><a href="#drop" class="interactive cut inline-block bg-white text-black font-mono text-xs font-bold tracking-widest px-7 py-4 mt-8" data-i18n="viewDrop">ПЕРЕГЛЯНУТИ ДРОП ↘</a></div><div class="order-1 lg:order-2"><div class="product-image aspect-square outline cut bg-panel shadow-2xl"><img src="front.png" alt="ST. OLGA TEE front" class="front"><img src="back.png" alt="ST. OLGA TEE back" class="back"><span class="absolute top-5 right-5 bg-acid text-black px-2 py-1 font-mono text-[9px] font-bold">001 / LIMITED</span><span class="absolute bottom-5 left-5 font-mono text-[9px] tracking-widest text-white/70" data-i18n="hoverFlip">HOVER / FLIP</span></div></div></div></section>
+    <div class="ticker border-b border-line py-3 text-acid font-mono text-[10px] tracking-[.3em]"><div class="ticker-track">ANTIDOT® — NO CURE FOR ORDINARY — KYIV / UKRAINE — ANTIDOT® — NO CURE FOR ORDINARY — KYIV / UKRAINE — </div></div>
+    <section id="drop" class="max-w-7xl mx-auto px-4 md:px-10 py-20"><div class="grid lg:grid-cols-2 gap-5 items-stretch"><div class="product-image aspect-[4/5] outline cut bg-panel"><img src="front.png" alt="ST. OLGA TEE front" class="front"><img src="back.png" alt="ST. OLGA TEE back" class="back"><span class="absolute top-5 left-5 font-mono text-[10px]">ANTIDOT / 001</span></div><div class="outline cut bg-panel p-6 md:p-10 flex flex-col justify-center"><p class="font-mono text-[10px] text-acid tracking-widest" data-i18n="available">AVAILABLE NOW / LIMITED RUN</p><h2 class="text-4xl md:text-6xl font-black tracking-[-.08em] uppercase mt-3">ST. OLGA<br><span class="text-neutral-500">KYIV TEE</span></h2><p class="text-neutral-400 text-sm leading-7 mt-7 max-w-md" data-i18n="description">100% важка бавовна. Шовкотрафаретний принт, посилені шви та агресивний oversized силует. Створено в Києві.</p><div class="flex items-center justify-between border-y border-line py-5 mt-8"><strong id="price" class="text-2xl font-black">2,400 UAH</strong><span class="font-mono text-[10px] text-neutral-500">240 GSM / COTTON</span></div><div class="mt-6"><div class="flex justify-between font-mono text-[10px] text-neutral-400 mb-3"><span data-i18n="selectSize">ОБЕРІТЬ РОЗМІР</span><b id="sizeLabel" class="text-white">L</b></div><div class="flex gap-2" id="sizes"><button class="size interactive outline px-5 py-3 font-mono text-xs" data-size="S">S</button><button class="size interactive outline px-5 py-3 font-mono text-xs" data-size="M">M</button><button class="size interactive outline px-5 py-3 font-mono text-xs active bg-white text-black" data-size="L">L</button><button class="size interactive outline px-5 py-3 font-mono text-xs" data-size="XL">XL</button></div></div><button id="add" class="interactive cut w-full bg-acid text-black py-4 mt-7 font-black text-xs tracking-widest" data-i18n="add">ДОДАТИ В КОШИК +</button></div></div></section>
+    <section id="next" class="border-y border-line bg-[#101010] py-20 px-4 md:px-10"><div class="max-w-7xl mx-auto"><div class="flex justify-between items-end mb-10"><div><p class="font-mono text-[10px] text-acid tracking-widest">// INCOMING TRANSMISSIONS</p><h2 class="text-4xl md:text-6xl font-black tracking-[-.08em] uppercase mt-3" data-i18n="chapters">НАСТУПНІ<br>РОЗДІЛИ</h2></div><span class="hidden md:block font-mono text-[10px] text-neutral-500">NO IMAGES. NO SPOILERS.</span></div><div class="grid md:grid-cols-3 gap-4"><article class="cut outline bg-[#181818] p-6 aspect-square flex flex-col justify-between hover:bg-[#202020] transition"><b class="font-mono text-7xl text-acid">02</b><div><small class="font-mono text-[9px] text-neutral-500">COMING SOON / 2025</small><h3 class="text-2xl font-black uppercase mt-2">DUSK / KYIV</h3></div></article><article class="cut outline bg-[#181818] p-6 aspect-square flex flex-col justify-between hover:bg-[#202020] transition"><b class="font-mono text-7xl text-neutral-700">03</b><div><small class="font-mono text-[9px] text-neutral-500">IN DEVELOPMENT</small><h3 class="text-2xl font-black uppercase mt-2">CONCRETE POETRY</h3></div></article><article class="cut outline bg-[#181818] p-6 aspect-square flex flex-col justify-between hover:bg-[#202020] transition"><b class="font-mono text-7xl text-neutral-700">04</b><div><small class="font-mono text-[9px] text-neutral-500">IN DEVELOPMENT</small><h3 class="text-2xl font-black uppercase mt-2">AFTER DARK</h3></div></article></div></div></section>
   </main>
-
-  <footer class="py-10 px-6 lg:px-12 max-w-6xl mx-auto font-mono text-[11px] text-neutral-400"><div class="flex flex-col md:flex-row justify-between items-center gap-4 border-b border-brandBorder pb-6"><span class="font-black text-white tracking-widest">ANTIDOT®</span><span>KYIV, UKRAINE / EST. 2024</span><span>ALL RIGHTS RESERVED</span></div></footer>
-
-  <div id="cartOverlay" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 opacity-0 pointer-events-none transition-opacity"></div>
-  <aside id="cartDrawer" class="fixed top-0 right-0 translate-x-full w-full sm:w-[500px] h-full bg-brandCard border-l border-brandBorder z-50 flex flex-col p-6 transition-transform duration-300 overflow-y-auto">
-    <div class="flex justify-between items-center border-b border-brandBorder pb-5">
-      <div>
-        <span class="font-mono text-[10px] text-neutral-500 uppercase tracking-widest">// YOUR SELECTION</span>
-        <h2 class="text-2xl font-black uppercase mt-1" data-i18n="cart">КОШИК</h2>
-      </div>
-      <button id="closeCart" aria-label="Close cart" class="text-2xl text-neutral-400 hover:text-white">×</button>
-    </div>
-
-    <div id="cartItems" class="py-5 space-y-3 flex-1"></div>
-
-    <div class="border-t border-brandBorder pt-5 space-y-5">
-      <div>
-        <label class="field-label">ДОСТАВКА ПО УКРАЇНІ</label>
-        <div class="space-y-2">
-          <label class="radio-card block cursor-pointer">
-            <input type="radio" name="delivery" value="Нова пошта" class="hidden" checked>
-            <div class="border border-brandBorder p-3 flex items-center justify-between text-sm">
-              <span>Нова пошта</span>
-              <span class="radio-dot"></span>
-            </div>
-          </label>
-          <label class="radio-card block cursor-pointer">
-            <input type="radio" name="delivery" value="Нова пошта поштомат" class="hidden">
-            <div class="border border-brandBorder p-3 flex items-center justify-between text-sm">
-              <span>Нова пошта поштомат</span>
-              <span class="radio-dot"></span>
-            </div>
-          </label>
-          <label class="radio-card block cursor-pointer">
-            <input type="radio" name="delivery" value="Укрпошта" class="hidden">
-            <div class="border border-brandBorder p-3 flex items-center justify-between text-sm">
-              <span>Укрпошта</span>
-              <span class="radio-dot"></span>
-            </div>
-          </label>
-        </div>
-      </div>
-
-      <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
-        <div>
-          <label class="field-label" for="cityInput">МІСТО *</label>
-          <input id="cityInput" class="field" autocomplete="address-level2" placeholder="Київ">
-          <div class="field-note">Вкажіть місто</div>
-        </div>
-        <div>
-          <label class="field-label" for="branchInput">ВІДДІЛЕННЯ / ПОШТОМАТ *</label>
-          <input id="branchInput" class="field" placeholder="№ 12">
-          <div class="field-note">Вкажіть відділення</div>
-        </div>
-      </div>
-
-      <div>
-        <label class="field-label">ДАНІ ОТРИМУВАЧА</label>
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
-          <div>
-            <input id="firstNameInput" class="field" autocomplete="given-name" placeholder="Ім'я *">
-            <div class="field-note">Вкажіть ім'я</div>
-          </div>
-          <div>
-            <input id="lastNameInput" class="field" autocomplete="family-name" placeholder="Прізвище *">
-            <div class="field-note">Вкажіть прізвище</div>
-          </div>
-          <div>
-            <input id="phoneInput" class="field" type="tel" autocomplete="tel" placeholder="Телефон: +380...">
-            <div class="field-note">Вкажіть коректний телефон</div>
-          </div>
-          <div>
-            <input id="emailInput" class="field" type="email" autocomplete="email" placeholder="Email *">
-            <div class="field-note">Вкажіть коректний email</div>
-          </div>
-        </div>
-      </div>
-
-      <div>
-        <label class="field-label">СПОСІБ ОПЛАТИ</label>
-        <div class="grid grid-cols-2 gap-2">
-          <label class="radio-card cursor-pointer">
-            <input type="radio" name="payment" value="Картка онлайн" class="hidden" checked>
-            <div class="border border-brandBorder p-3 flex items-center justify-between text-xs">
-              <span>Картка</span>
-              <span class="radio-dot"></span>
-            </div>
-          </label>
-          <label class="radio-card cursor-pointer">
-            <input type="radio" name="payment" value="Післяплата" class="hidden">
-            <div class="border border-brandBorder p-3 flex items-center justify-between text-xs">
-              <span>Післяплата</span>
-              <span class="radio-dot"></span>
-            </div>
-          </label>
-        </div>
-      </div>
-
-      <label class="flex gap-2 items-start text-[10px] text-neutral-500 font-mono cursor-pointer">
-        <input id="consentCheckbox" type="checkbox" class="mt-0.5 accent-white">
-        <span>Погоджуюсь з обробкою даних для оформлення замовлення.</span>
-      </label>
-
-      <div class="flex justify-between items-end pt-2">
-        <span class="font-mono text-xs text-neutral-400">РАЗОМ</span>
-        <strong id="cartTotal" class="text-2xl">0 UAH</strong>
-      </div>
-
-      <button id="checkoutButton" class="btn-spring w-full bg-white text-black py-4 font-black text-xs tracking-widest uppercase">ОФОРМИТИ ЗАМОВЛЕННЯ</button>
-      <p class="font-mono text-[10px] text-neutral-500 leading-5">Це демо-оформлення: підключення оплати та відправки замовлення буде додано на етапі backend.</p>
-    </div>
-  </aside>
-
-  <div id="profileOverlay" class="fixed inset-0 bg-black/80 z-50 opacity-0 pointer-events-none flex items-center justify-center p-4 transition-opacity"><div class="bg-brandCard border border-brandBorder p-7 max-w-sm w-full"><div class="flex justify-between"><h2 class="font-black uppercase">ANTIDOT COMMUNITY</h2><button id="closeProfile" class="text-xl">×</button></div><p class="font-mono text-xs text-neutral-400 leading-6 mt-6">Приєднуйтесь до списку раннього доступу. Нові релізи — першими.</p><input class="w-full bg-brandBg border border-brandBorder p-3 mt-5 font-mono text-xs" placeholder="YOUR EMAIL"><button class="w-full bg-white text-black py-3 mt-3 font-bold text-xs">SUBSCRIBE</button></div></div>
-
+  <footer class="max-w-7xl mx-auto px-4 md:px-10 py-10 flex flex-col md:flex-row justify-between gap-4 font-mono text-[10px] text-neutral-500"><b class="text-white tracking-widest">ANTIDOT®</b><span>KYIV, UKRAINE / EST. 2024</span><span>ALL RIGHTS RESERVED</span></footer>
+  <div id="overlay" class="fixed inset-0 z-[60] bg-black/80 opacity-0 pointer-events-none transition-opacity"></div>
+  <aside id="drawer" class="fixed z-[70] top-0 right-0 h-full w-full sm:max-w-[480px] translate-x-full transition-transform duration-300 bg-panel border-l border-line p-6 flex flex-col overflow-y-auto"><div class="flex justify-between items-start border-b border-line pb-5"><div><p class="font-mono text-[10px] text-neutral-500">// YOUR SELECTION</p><h2 class="text-2xl font-black uppercase" data-i18n="cart">КОШИК</h2></div><button id="cartClose" class="text-3xl text-neutral-400 hover:text-white">×</button></div><div id="items" class="flex-1 py-5"></div><div class="border-t border-line pt-5 space-y-5"><div><label class="font-mono text-[10px] text-neutral-400 block mb-3" data-i18n="delivery">ДОСТАВКА ПО УКРАЇНІ</label><div class="space-y-2"><label class="radio block"><input class="hidden" type="radio" name="delivery" value="Нова пошта" checked><div class="outline p-3 flex justify-between text-xs">Нова пошта <i></i></div></label><label class="radio block"><input class="hidden" type="radio" name="delivery" value="Нова пошта поштомат"><div class="outline p-3 flex justify-between text-xs">Нова пошта поштомат <i></i></div></label><label class="radio block"><input class="hidden" type="radio" name="delivery" value="Укрпошта"><div class="outline p-3 flex justify-between text-xs">Укрпошта <i></i></div></label></div></div><div><label class="font-mono text-[10px] text-neutral-400 block mb-3" data-i18n="payment">СПОСІБ ОПЛАТИ</label><div class="grid grid-cols-2 gap-2"><label class="radio"><input class="hidden" type="radio" name="payment" value="Картка онлайн" checked><div class="outline p-3 flex justify-between text-xs"><span data-i18n="card">Картка онлайн</span><i></i></div></label><label class="radio"><input class="hidden" type="radio" name="payment" value="Післяплата"><div class="outline p-3 flex justify-between text-xs"><span data-i18n="cod">Післяплата</span><i></i></div></label></div></div><div class="flex justify-between font-mono"><span class="text-xs text-neutral-500" data-i18n="total">РАЗОМ</span><b id="total">0 UAH</b></div><button id="checkout" class="interactive cut w-full bg-acid text-black py-4 font-black text-xs tracking-widest" data-i18n="checkout">ОФОРМИТИ ЗАМОВЛЕННЯ</button></div></aside>
   <script>
-    const frontImage='front.png', backImage='back.png';
-    let lang='UA', currency='UAH', selectedSize='L', cart=[];
-    const translations={UA:{cart:'КОШИК',profile:'ПРОФІЛЬ',nav_catalog:'КАТАЛОГ',nav_coming:'СКОРО...',description:'100% Важка бавовна (240 GSM). Шовкотрафаретний принт. Виготовлено в Києві.',selectSize:'ОБЕРІТЬ РОЗМІР:',add:'ДОДАТИ В КОШИК',empty:'ВАШ КОШИК ПОРОЖНІЙ'},EN:{cart:'CART',profile:'PROFILE',nav_catalog:'CATALOG',nav_coming:'COMING SOON',description:'100% heavyweight cotton (240 GSM). Screen-printed graphic. Made in Kyiv.',selectSize:'SELECT SIZE:',add:'ADD TO CART',empty:'YOUR CART IS EMPTY'}};
-    const money=n=>currency==='EUR'?`${Math.round(n/45)} €`:`${n.toLocaleString('uk-UA')} UAH`;
-
-    function toast(text){const el=document.getElementById('notificationToast');document.getElementById('toastMessage').textContent=text;el.classList.remove('hidden');clearTimeout(window.toastTimer);window.toastTimer=setTimeout(()=>el.classList.add('hidden'),2800)}
-    function updateText(){const d=translations[lang];document.querySelectorAll('[data-i18n]').forEach(el=>{if(d[el.dataset.i18n])el.textContent=d[el.dataset.i18n]});document.getElementById('currencyButton').textContent=currency==='UAH'?'UAH (₴)':'EUR (€)'}
-
-    function renderCart(){
-      const count=cart.reduce((s,i)=>s+i.qty,0), subtotal=cart.reduce((s,i)=>s+i.price*i.qty,0);
-      document.getElementById('cartCount').textContent=count;
-      document.getElementById('cartTotal').textContent=money(subtotal);
-      document.getElementById('cartItems').innerHTML = cart.length ? cart.map((item,index)=>`
-        <div class="border border-brandBorder p-3 flex justify-between items-center gap-3">
-          <div>
-            <div class="font-bold text-sm">${item.name}</div>
-            <div class="font-mono text-[10px] text-neutral-500 mt-1">SIZE ${item.size} / ${money(item.price)}</div>
-          </div>
-          <div class="flex items-center gap-2">
-            <button class="qty-btn btn-spring border border-brandBorder w-7 h-7 text-sm" data-index="${index}" data-delta="-1">−</button>
-            <span class="font-mono text-xs">${item.qty}</span>
-            <button class="qty-btn btn-spring border border-brandBorder w-7 h-7 text-sm" data-index="${index}" data-delta="1">+</button>
-          </div>
-        </div>
-      `).join('') : `<div class="h-full min-h-40 flex items-center justify-center font-mono text-xs text-neutral-500">${translations[lang].empty}</div>`;
-
-      document.querySelectorAll('.qty-btn').forEach(button=>button.addEventListener('click',()=>{
-        const index = Number(button.dataset.index);
-        const delta = Number(button.dataset.delta);
-        cart[index].qty += delta;
-        if (cart[index].qty < 1) cart.splice(index, 1);
-        renderCart();
-      }));
-    }
-
-    function toggleCart(open){
-      document.getElementById('cartDrawer').classList.toggle('translate-x-full', !open);
-      document.getElementById('cartOverlay').classList.toggle('opacity-0', !open);
-      document.getElementById('cartOverlay').classList.toggle('pointer-events-none', !open);
-    }
-
-    function toggleProfile(open){
-      document.getElementById('profileOverlay').classList.toggle('opacity-0', !open);
-      document.getElementById('profileOverlay').classList.toggle('pointer-events-none', !open);
-    }
-
-    function clearFieldErrors(){
-      document.querySelectorAll('.has-error').forEach(el => el.classList.remove('has-error'));
-      document.querySelectorAll('.field.invalid').forEach(el => el.classList.remove('invalid'));
-    }
-
-    function validateOrderForm(){
-      clearFieldErrors();
-      let valid = true;
-      const requiredFields = [
-        { id: 'cityInput', message: 'Вкажіть місто' },
-        { id: 'branchInput', message: 'Вкажіть відділення' },
-        { id: 'firstNameInput', message: "Вкажіть ім'я" },
-        { id: 'lastNameInput', message: 'Вкажіть прізвище' },
-        { id: 'phoneInput', message: 'Вкажіть коректний телефон' },
-        { id: 'emailInput', message: 'Вкажіть коректний email' }
-      ];
-
-      requiredFields.forEach(({ id, message }) => {
-        const input = document.getElementById(id);
-        const value = input.value.trim();
-        let passed = !!value;
-
-        if (id === 'phoneInput') passed = /^[+0-9 ()-]{10,}$/.test(value);
-        if (id === 'emailInput') passed = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
-
-        if (!passed) {
-          valid = false;
-          input.classList.add('invalid');
-          input.parentElement.classList.add('has-error');
-        }
-      });
-
-      if (!document.getElementById('consentCheckbox').checked) {
-        valid = false;
-        toast('Підтвердіть згоду на обробку даних');
-      }
-
-      return valid;
-    }
-
-    document.querySelectorAll('.size-btn').forEach(btn => btn.addEventListener('click', () => {
-      selectedSize = btn.dataset.size;
-      document.querySelectorAll('.size-btn').forEach(b => {
-        b.classList.remove('bg-white','text-black');
-        b.classList.add('bg-brandElevated');
-      });
-      btn.classList.remove('bg-brandElevated');
-      btn.classList.add('bg-white','text-black');
-      document.getElementById('selectedSizeLabel').textContent = selectedSize;
-    }));
-
-    document.getElementById('addToCart').addEventListener('click', () => {
-      let item = cart.find(i => i.size === selectedSize);
-      if (item) item.qty++;
-      else cart.push({ name: 'ST. OLGA / KYIV TEE', price: 2400, size: selectedSize, qty: 1 });
-      renderCart();
-      toast('ДОДАНО ДО КОШИКА');
-    });
-
-    document.getElementById('cartButton').onclick = () => toggleCart(true);
-    document.getElementById('closeCart').onclick = () => toggleCart(false);
-    document.getElementById('cartOverlay').onclick = () => toggleCart(false);
-    document.getElementById('profileButton').onclick = () => toggleProfile(true);
-    document.getElementById('closeProfile').onclick = () => toggleProfile(false);
-    document.getElementById('profileOverlay').onclick = e => {
-      if (e.target.id === 'profileOverlay') toggleProfile(false);
-    };
-
-    document.getElementById('currencyButton').onclick = () => {
-      currency = currency === 'UAH' ? 'EUR' : 'UAH';
-      updateText();
-      renderCart();
-    };
-
-    document.getElementById('languageButton').onclick = () => {
-      lang = lang === 'UA' ? 'EN' : 'UA';
-      updateText();
-    };
-
-    document.getElementById('checkoutButton').onclick = () => {
-      if (!cart.length) {
-        toast('Додайте товар до кошика');
-        return;
-      }
-
-      if (!validateOrderForm()) return;
-
-      const delivery = document.querySelector('input[name="delivery"]:checked').value;
-      const payment = document.querySelector('input[name="payment"]:checked').value;
-      const data = {
-        firstName: document.getElementById('firstNameInput').value.trim(),
-        lastName: document.getElementById('lastNameInput').value.trim(),
-        phone: document.getElementById('phoneInput').value.trim(),
-        email: document.getElementById('emailInput').value.trim(),
-        city: document.getElementById('cityInput').value.trim(),
-        branch: document.getElementById('branchInput').value.trim(),
-        delivery,
-        payment,
-        total: document.getElementById('cartTotal').textContent,
-        items: cart
-      };
-
-      console.log('Order data:', data);
-      toast('ЗАМОВЛЕННЯ ГОТОВЕ ДО ВІДПРАВКИ');
-    };
-
+    const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];let size='L',currency='UAH',lang='UA',cart=JSON.parse(localStorage.getItem('antidot-cart')||'[]');
+    const t={UA:{catalog:'КАТАЛОГ',next:'СКОРО',cart:'КОШИК',heroMeta:'240 GSM HEAVYWEIGHT COTTON\nOVERSIZED CUT / MADE IN KYIV',viewDrop:'ПЕРЕГЛЯНУТИ ДРОП ↘',hoverFlip:'НАВЕДИ / ПЕРЕВЕРНИ',available:'ДОСТУПНО ЗАРАЗ / ЛІМІТОВАНИЙ ТИРАЖ',description:'100% важка бавовна. Шовкотрафаретний принт, посилені шви та агресивний oversized силует. Створено в Києві.',selectSize:'ОБЕРІТЬ РОЗМІР',add:'ДОДАТИ В КОШИК +',chapters:'НАСТУПНІ\nРОЗДІЛИ',delivery:'ДОСТАВКА ПО УКРАЇНІ',payment:'СПОСІБ ОПЛАТИ',card:'Картка онлайн',cod:'Післяплата',total:'РАЗОМ',checkout:'ОФОРМИТИ ЗАМОВЛЕННЯ',empty:'ВАШ КОШИК ПОРОЖНІЙ'},EN:{catalog:'CATALOG',next:'COMING',cart:'CART',heroMeta:'240 GSM HEAVYWEIGHT COTTON\nOVERSIZED CUT / MADE IN KYIV',viewDrop:'VIEW THE DROP ↘',hoverFlip:'HOVER / FLIP',available:'AVAILABLE NOW / LIMITED RUN',description:'100% heavyweight cotton. Screen-printed graphic, reinforced seams and an aggressive oversized silhouette. Made in Kyiv.',selectSize:'SELECT SIZE',add:'ADD TO CART +',chapters:'NEXT\nCHAPTERS',delivery:'DELIVERY IN UKRAINE',payment:'PAYMENT METHOD',card:'Card online',cod:'Cash on delivery',total:'TOTAL',checkout:'CHECKOUT',empty:'YOUR CART IS EMPTY'}};
+    const money=n=>currency==='UAH'?n.toLocaleString('uk-UA')+' UAH':Math.round(n/45).toLocaleString('en-US')+' €';
+    function toast(text){const e=$('#toast');e.textContent=text;e.classList.remove('hidden');e.classList.add('toast-in');clearTimeout(window.toastTimer);window.toastTimer=setTimeout(()=>{e.classList.add('hidden');e.classList.remove('toast-in')},2800)}
+    function save(){localStorage.setItem('antidot-cart',JSON.stringify(cart))}
+    function render(){const qty=cart.reduce((a,x)=>a+x.qty,0),sum=cart.reduce((a,x)=>a+x.qty*x.price,0);$('#count').textContent=qty;$('#total').textContent=money(sum);$('#items').innerHTML=cart.length?cart.map((x,i)=>`<div class="outline p-4 flex justify-between items-center mb-2"><div><b class="text-sm">${x.name}</b><p class="font-mono text-[10px] text-neutral-500 mt-1">SIZE ${x.size} / ${money(x.price)}</p></div><div class="flex items-center gap-3"><button class="qty outline w-7 h-7" data-i="${i}" data-d="-1">−</button><span>${x.qty}</span><button class="qty outline w-7 h-7" data-i="${i}" data-d="1">+</button></div></div>`).join(''):`<div class="py-16 text-center font-mono text-xs text-neutral-500">${t[lang].empty}</div>`;$$('.qty').forEach(b=>b.onclick=()=>{const i=+b.dataset.i;cart[i].qty+=+b.dataset.d;if(cart[i].qty<1)cart.splice(i,1);save();render()})}
+    function updateText(){const d=t[lang];$$('[data-i18n]').forEach(e=>{if(d[e.dataset.i18n])e.textContent=d[e.dataset.i18n]});document.documentElement.lang=lang==='UA'?'uk':'en';$('#language').classList.toggle('en',lang==='EN');$('#price').textContent=currency==='UAH'?'2,400 UAH':'53 €';render()}
+    function toggle(open){$('#drawer').classList.toggle('translate-x-full',!open);$('#overlay').classList.toggle('opacity-0',!open);$('#overlay').classList.toggle('pointer-events-none',!open)}
+    $$('.size').forEach(b=>b.onclick=()=>{size=b.dataset.size;$('#sizeLabel').textContent=size;$$('.size').forEach(x=>x.classList.remove('active','bg-white','text-black'));b.classList.add('active','bg-white','text-black')});
+    $('#add').onclick=()=>{const x=cart.find(i=>i.size===size);x?x.qty++:cart.push({name:'ST. OLGA / KYIV TEE',size,price:2400,qty:1});save();render();toast(lang==='UA'?'ДОДАНО ДО КОШИКА':'ADDED TO CART')};
+    $('#cartOpen').onclick=()=>toggle(true);$('#cartClose').onclick=()=>toggle(false);$('#overlay').onclick=()=>toggle(false);
+    $('#currency').onclick=()=>{currency=currency==='UAH'?'EUR':'UAH';$('#currency').textContent=currency==='UAH'?'UAH (₴)':'EUR (€)';updateText()};
+    $('#language').onclick=()=>{lang=lang==='UA'?'EN':'UA';updateText();toast(lang==='UA'?'РЕЖИМ УКРАЇНСЬКОЇ':'ENGLISH MODE')};
+    $('#checkout').onclick=()=>{if(!cart.length)return toast(t[lang].empty);const d=$('input[name="delivery"]:checked').value,p=$('input[name="payment"]:checked').value;toast((lang==='UA'?'ЗАМОВЛЕННЯ ПІДТВЕРДЖЕНО · ':'ORDER CONFIRMED · ')+d+' · '+p)};
     updateText();
-    renderCart();
   </script>
 </body>
 </html>
