@@ -1,412 +1,445 @@
 <!doctype html>
 <html lang="uk" class="dark">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="description" content="ANTIDOT — independent Kyiv streetwear. Heavyweight essentials, limited drops.">
-<title>ANTIDOT — No Cure For Ordinary</title>
-<script src="https://cdn.tailwindcss.com"></script>
-<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;800;900&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
-<script>tailwind.config={theme:{extend:{fontFamily:{sans:['Inter','sans-serif'],mono:['JetBrains Mono','monospace']},colors:{blackout:'#090909',panel:'#151515',line:'#303030',acid:'#d8ff00',red:'#ff3b30'}}}};</script>
-<style>
-:root{color-scheme:dark}*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:#090909;color:#f5f5f5}::selection{background:#d8ff00;color:#090909}::-webkit-scrollbar{width:8px}::-webkit-scrollbar-track{background:#090909}::-webkit-scrollbar-thumb{background:#454545;border-radius:8px}
-.cut{clip-path:polygon(0 0,calc(100% - 16px) 0,100% 16px,100% 100%,16px 100%,0 calc(100% - 16px))}.cut-sm{clip-path:polygon(0 0,calc(100% - 9px) 0,100% 9px,100% 100%,9px 100%,0 calc(100% - 9px))}.outline{border:1px solid #303030}.interactive{transition:transform .2s ease,background-color .2s ease,border-color .2s ease,color .2s ease,filter .2s ease}.interactive:hover{transform:translateY(-2px);filter:brightness(1.1)}.interactive:active{transform:scale(.97)}
-.product-image{position:relative;overflow:hidden;background:#202020}.product-image img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;transition:opacity .4s ease,transform .5s ease}.product-image .back{opacity:0}.product-image:hover .front{opacity:0;transform:scale(1.04)}.product-image:hover .back{opacity:1;transform:scale(1.04)}
-.lang-toggle{position:relative;width:78px;height:32px;padding:3px;border:1px solid #4b4b4b;border-radius:999px;background:#242424;display:flex;align-items:center;font:700 9px 'JetBrains Mono',monospace;letter-spacing:.08em}.lang-toggle span{position:relative;z-index:1;width:50%;text-align:center;transition:color .2s}.lang-toggle:before{content:'';position:absolute;left:3px;top:3px;width:34px;height:24px;border-radius:999px;background:#fff;transition:transform .25s cubic-bezier(.25,1,.5,1)}.lang-toggle.en:before{transform:translateX(35px)}.lang-toggle.en #langUA,.lang-toggle:not(.en) #langEN{color:#888}.lang-toggle.en #langEN,.lang-toggle:not(.en) #langUA{color:#111}
-.ticker{overflow:hidden;white-space:nowrap}.ticker-track{display:inline-block;animation:ticker 24s linear infinite}@keyframes ticker{to{transform:translateX(-50%)}}.radio input:checked+div{background:#f5f5f5;color:#090909;border-color:#f5f5f5}.radio input:checked+div i{background:#090909}.radio i{width:11px;height:11px;border:1px solid #777;border-radius:50%;display:block;flex:0 0 auto}.toast-in{animation:toast-in .25s ease}@keyframes toast-in{from{opacity:0;transform:translateY(15px)}to{opacity:1;transform:none}}
-.cart-input{width:100%;border:1px solid #303030;background:#101010;padding:12px;color:#fff;font-size:12px;outline:none;transition:border-color .2s ease,background-color .2s ease}.cart-input::placeholder{color:#666}.cart-input:focus{border-color:#f5f5f5;background:#181818}.cart-input.invalid{border-color:#ff3b30}
-/* Mobile-only refinements. Desktop rules above remain unchanged. */
-@media(max-width:640px){
- body{min-width:320px}
- header{height:64px;padding-left:12px;padding-right:12px}
- .header-logo{position:absolute;left:50%;transform:translateX(-50%);font-size:1.35rem;letter-spacing:-.04em!important;max-width:none;white-space:nowrap;overflow:visible;margin:0;text-align:center}
- .header-actions{position:absolute;inset:0 0 auto 0;height:100%;display:block;margin:0;padding:0;pointer-events:none}
- .header-actions .currency{display:none}
- .header-actions #language{position:absolute;left:12px;top:16px;pointer-events:auto}
- .header-actions #cartOpen{position:absolute;right:12px;top:16px;pointer-events:auto}
- .lang-toggle{width:70px;flex:0 0 70px}
- main#top{padding-top:0}.hero-mobile-hidden{display:none}.mobile-no-hover{pointer-events:none}
- .product-image .back{opacity:0}.product-image:active .front{opacity:0}.product-image:active .back{opacity:1}
- .mobile-tight{letter-spacing:-.08em}.mobile-scroll-x{overflow-x:auto;scrollbar-width:none}.mobile-scroll-x::-webkit-scrollbar{display:none}
- #toast{left:12px;right:12px;bottom:16px;text-align:center;max-width:none}
- #drawer{padding:16px;padding-bottom:calc(16px + env(safe-area-inset-bottom));border-left:0;width:100%;max-width:none}.cart-input{font-size:16px;padding:13px}.radio>div{min-height:48px;align-items:center}.qty{width:36px!important;height:36px!important}.radio span{line-height:1.35}.payment-mobile{grid-template-columns:1fr!important}
-}
-@media(max-width:380px){
- .header-logo{font-size:1.15rem;letter-spacing:-.04em!important}
- .header-actions #language{left:8px;top:16px}
- .header-actions #cartOpen{right:8px;top:16px;padding-left:8px;padding-right:8px}
- .lang-toggle{width:64px;flex-basis:64px}
- .lang-toggle:before{width:28px}
- .lang-toggle.en:before{transform:translateX(27px)}
-}
-@media(hover:none){.interactive:hover{transform:none;filter:none}.product-image:hover .front{opacity:1;transform:none}.product-image:hover .back{opacity:0;transform:none}}
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="description" content="ANTIDOT — independent Kyiv streetwear. Heavyweight essentials, limited drops.">
+  <title>ANTIDOT — No Cure For Ordinary</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;800;900&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            mono: ['JetBrains Mono', 'monospace']
+          },
+          colors: {
+            blackout: '#090909',
+            panel: '#151515',
+            line: '#303030',
+            acid: '#ffffff',
+            red: '#ff3b3b'
+          }
+        }
+      }
+    };
+  </script>
+  <style>
+    :root {
+      color-scheme: dark;
+      --acid: #ffffff;
+      --acid-soft: #f5f5f5;
+      --black: #090909;
+      --panel: #151515;
+      --line: #303030;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      background: #090909;
+      color: #f5f5f5;
+      font-family: 'Inter', sans-serif;
+    }
+    ::selection { background: var(--acid); color: var(--black); }
+    ::-webkit-scrollbar { width: 8px; }
+    ::-webkit-scrollbar-track { background: #090909; }
+    ::-webkit-scrollbar-thumb { background: #454545; border-radius: 8px; }
+
+    .cut { clip-path: polygon(0 0, calc(100% - 16px) 0, 100% 16px, 100% 100%, 16px 100%, 0 calc(100% - 16px)); }
+    .cut-sm { clip-path: polygon(0 0, calc(100% - 9px) 0, 100% 9px, 100% 100%, 9px 100%, 0 calc(100% - 9px)); }
+    .outline { border: 1px solid var(--line); }
+    .interactive { transition: transform .2s ease, background-color .2s ease, border-color .2s ease, color .2s ease, filter .2s ease; }
+    .interactive:hover { transform: translateY(-2px); filter: brightness(1.08); }
+    .interactive:active { transform: scale(.97); }
+
+    .product-image { position: relative; overflow: hidden; background: #202020; }
+    .product-image img {
+      position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; transition: opacity .4s ease, transform .5s ease;
+    }
+    .product-image .back { opacity: 0; }
+    .product-image:hover .front { opacity: 0; transform: scale(1.04); }
+    .product-image:hover .back { opacity: 1; transform: scale(1.04); }
+
+    .lang-toggle {
+      position: relative; width: 78px; height: 32px; padding: 3px; border: 1px solid #4b4b4b; border-radius: 999px;
+      background: #242424; display: flex; align-items: center; font: 700 9px 'JetBrains Mono', monospace; letter-spacing: .08em;
+      color: #888;
+    }
+    .lang-toggle span { position: relative; z-index: 1; width: 50%; text-align: center; }
+    .lang-toggle:before {
+      content: ''; position: absolute; left: 3px; top: 3px; width: 36px; height: 24px; border-radius: 999px;
+      background: var(--acid); transition: transform .25s cubic-bezier(.25,1,.5,1);
+    }
+    .lang-toggle.en:before { transform: translateX(35px); }
+    .lang-toggle #langUA, .lang-toggle #langEN { color: #111; }
+    .lang-toggle:not(.en) #langUA, .lang-toggle.en #langEN { color: #111; }
+    .lang-toggle:not(.en) #langEN, .lang-toggle.en #langUA { color: #888; }
+
+    .ticker { overflow: hidden; white-space: nowrap; }
+    .ticker-track { display: inline-block; animation: ticker 24s linear infinite; }
+    @keyframes ticker { to { transform: translateX(-50%); } }
+
+    .radio input:checked + div { background: var(--acid); color: #090909; border-color: var(--acid); }
+    .radio i { width: 11px; height: 11px; border: 1px solid #777; border-radius: 50%; display: block; flex: 0 0 auto; }
+    .radio input:checked + div i { background: #090909; border-color: #090909; }
+
+    .cart-input {
+      width: 100%; border: 1px solid #303030; background: #101010; padding: 12px; color: #fff; font-size: 12px; outline: none;
+      transition: border-color .2s ease, background-color .2s ease;
+    }
+    .cart-input::placeholder { color: #666; }
+    .cart-input:focus { border-color: #f5f5f5; background: #181818; }
+    .cart-input.invalid { border-color: #ff3b3b; }
+
+    @media (max-width: 640px) {
+      body { min-width: 320px; }
+      header { height: 64px; padding-left: 12px; padding-right: 12px; }
+      .header-logo {
+        position: absolute; left: 50%; transform: translateX(-50%); font-size: 1.35rem; letter-spacing: -.04em !important;
+        max-width: none; white-space: nowrap; overflow: visible; margin: 0; text-align: center;
+      }
+      .header-actions {
+        position: absolute; inset: 0 0 auto 0; height: 100%; display: block; margin: 0; padding: 0; pointer-events: none;
+      }
+      .header-actions .currency { display: none; }
+      .header-actions #language { position: absolute; left: 12px; top: 16px; pointer-events: auto; }
+      .header-actions #cartOpen { position: absolute; right: 12px; top: 16px; pointer-events: auto; }
+      .lang-toggle { width: 70px; flex: 0 0 70px; }
+      main#top { padding-top: 0; }
+      .product-image .back { opacity: 0; }
+      .product-image:active .front { opacity: 0; }
+      .product-image:active .back { opacity: 1; }
+      #toast { left: 12px; right: 12px; bottom: 16px; text-align: center; max-width: none; }
+      #drawer { padding: 16px; padding-bottom: calc(16px + env(safe-area-inset-bottom)); border-left: 0; width: 100%; max-width: none; }
+      .cart-input { font-size: 16px; padding: 13px; }
+      .radio > div { min-height: 48px; align-items: center; }
+    }
+
+    @media (max-width: 380px) {
+      .header-logo { font-size: 1.15rem; letter-spacing: -.04em !important; }
+      .header-actions #language { left: 8px; top: 16px; }
+      .header-actions #cartOpen { right: 8px; top: 16px; padding-left: 8px; padding-right: 8px; }
+      .lang-toggle { width: 64px; flex-basis: 64px; }
+      .lang-toggle:before { width: 28px; }
+      .lang-toggle.en:before { transform: translateX(27px); }
+    }
+
+    @media (hover: none) {
+      .interactive:hover { transform: none; filter: none; }
+      .product-image:hover .front { opacity: 1; transform: none; }
+      .product-image:hover .back { opacity: 0; transform: none; }
+    }
+  </style>
 </head>
 <body class="font-sans antialiased overflow-x-hidden">
-<div id="toast" class="hidden fixed z-[90] bottom-5 right-5 max-w-[calc(100vw-2rem)] bg-white text-black px-5 py-3 cut-sm font-mono text-xs font-bold shadow-2xl"></div>
+  <div id="toast" class="hidden fixed z-[90] bottom-5 right-5 max-w-[calc(100vw-2rem)] bg-white text-black px-5 py-3 cut-sm font-mono text-xs font-bold shadow-2xl"></div>
 
-<header class="fixed z-50 top-0 w-full h-[72px] px-4 md:px-8 flex items-center justify-between bg-blackout/90 backdrop-blur-md border-b border-line">
-<nav class="hidden md:flex items-center gap-5 font-mono text-[10px] tracking-[.2em] text-neutral-400">
-<a href="#drop" class="hover:text-white" data-i18n="catalog">КАТАЛОГ</a>
-<b class="text-neutral-700">/</b>
-<a href="#next" class="hover:text-white" data-i18n="next">СКОРО</a>
-</nav>
-<a href="#top" class="header-logo absolute left-1/2 -translate-x-1/2 text-2xl md:text-3xl font-black tracking-[-.04em]">ANTIDOT<span class="text-red">.</span></a>
-<div class="header-actions flex items-center gap-2">
-<button id="currency" class="currency interactive rounded-full outline bg-panel px-3 py-2 font-mono text-[10px]">UAH (₴)</button>
-<button id="language" class="lang-toggle" aria-label="Change language"><span id="langUA">UA</span><span id="langEN">EN</span></button>
-<button id="cartOpen" class="interactive cut-sm bg-white text-black px-4 py-2 font-mono text-[10px] font-bold"><span data-i18n="cart">КОШИК</span> (<span id="count">0</span>)</button>
-</div>
-</header>
+  <header class="fixed z-50 top-0 w-full h-[72px] px-4 md:px-8 flex items-center justify-between bg-blackout/90 backdrop-blur-md border-b border-line">
+    <nav class="hidden md:flex items-center gap-5 font-mono text-[10px] tracking-[.2em] text-neutral-400">
+      <a href="#drop" class="hover:text-white" data-i18n="catalog">КАТАЛОГ</a>
+      <b class="text-neutral-700">/</b>
+      <a href="#next" class="hover:text-white" data-i18n="next">СКОРО</a>
+    </nav>
+    <a href="#top" class="header-logo absolute left-1/2 -translate-x-1/2 text-2xl md:text-3xl font-black tracking-[-.04em]">ANTIDOT<span class="text-red">.</span></a>
+    <div class="header-actions flex items-center gap-2">
+      <button id="currency" class="currency interactive rounded-full outline bg-panel px-3 py-2 font-mono text-[10px]">UAH (₴)</button>
+      <button id="language" class="lang-toggle" aria-label="Change language"><span id="langUA">UA</span><span id="langEN">EN</span></button>
+      <button id="cartOpen" class="interactive cut-sm bg-white text-black px-4 py-2 font-mono text-[10px] font-bold"><span data-i18n="cart">КОШИК</span> (<span id="count">0</span>)</button>
+    </div>
+  </header>
 
-<main id="top">
-<section class="min-h-screen pt-28 pb-14 px-4 md:px-10 flex items-center border-b border-line relative overflow-hidden">
-<div class="absolute -right-16 top-32 text-[15rem] md:text-[26rem] font-black leading-none text-white/[.025] select-none">01</div>
-<div class="max-w-7xl w-full mx-auto grid lg:grid-cols-[.78fr_1.42fr] gap-8 items-end relative">
-<div class="order-2 lg:order-1">
-<p class="font-mono text-[10px] tracking-[.25em] text-acid mb-5">// DROP 01 / KYIV FOUNDATIONS</p>
-<h1 class="text-[clamp(3.4rem,10vw,9rem)] leading-[.78] font-black tracking-[-.11em] uppercase">ST.<br>OLGA<br><span class="text-transparent" style="-webkit-text-stroke:1px #f5f5f5">TEE</span></h1>
-<p class="font-mono text-xs text-neutral-400 leading-6 max-w-xs mt-8" data-i18n="heroMeta">240 GSM HEAVYWEIGHT COTTON<br>OVERSIZED CUT / MADE IN KYIV</p>
-<a href="#drop" class="interactive cut inline-block bg-white text-black font-mono text-xs font-bold tracking-widest px-7 py-4 mt-8" data-i18n="viewDrop">ПЕРЕГЛЯНУТИ ДРОП ↘</a>
-</div>
-<div class="order-1 lg:order-2">
-<div class="product-image aspect-square outline cut bg-panel shadow-2xl">
-<img src="front.png" alt="ST. OLGA TEE front" class="front">
-<img src="back.png" alt="ST. OLGA TEE back" class="back">
-<span class="absolute top-5 right-5 bg-acid text-black px-2 py-1 font-mono text-[9px] font-bold">001 / LIMITED</span>
-<span class="absolute bottom-5 left-5 font-mono text-[9px] tracking-widest text-white/70" data-i18n="hoverFlip">HOVER / FLIP</span>
-</div>
-</div>
-</div>
-</section>
+  <main id="top">
+    <section class="min-h-screen pt-28 pb-14 px-4 md:px-10 flex items-center border-b border-line relative overflow-hidden">
+      <div class="absolute -right-16 top-32 text-[15rem] md:text-[26rem] font-black leading-none text-white/[.025] select-none">01</div>
+      <div class="max-w-7xl w-full mx-auto grid lg:grid-cols-[.78fr_1.42fr] gap-8 items-end relative">
+        <div class="order-2 lg:order-1">
+          <p class="font-mono text-[10px] tracking-[.25em] text-white mb-5">// DROP 01 / KYIV FOUNDATIONS</p>
+          <h1 class="text-[clamp(3.4rem,10vw,9rem)] leading-[.78] font-black tracking-[-.11em] uppercase">ST.<br>OLGA<br><span class="text-transparent" style="-webkit-text-stroke:1px #f5f5f5">TEE</span></h1>
+          <p class="font-mono text-xs text-neutral-400 leading-6 max-w-xs mt-8" data-i18n="heroMeta">240 GSM HEAVYWEIGHT COTTON<br>OVERSIZED CUT / MADE IN KYIV</p>
+          <a href="#drop" class="interactive cut inline-block bg-white text-black font-mono text-xs font-bold tracking-widest px-7 py-4 mt-8" data-i18n="viewDrop">ПЕРЕГЛЯНУТИ ДРОП ↘</a>
+        </div>
+        <div class="order-1 lg:order-2">
+          <div class="product-image aspect-square outline cut bg-panel shadow-2xl">
+            <img src="front.png" alt="ST. OLGA TEE front" class="front">
+            <img src="back.png" alt="ST. OLGA TEE back" class="back">
+            <span class="absolute top-5 right-5 bg-white text-black px-2 py-1 font-mono text-[9px] font-bold">001 / LIMITED</span>
+            <span class="absolute bottom-5 left-5 font-mono text-[9px] tracking-widest text-white/70" data-i18n="hoverFlip">HOVER / FLIP</span>
+          </div>
+        </div>
+      </div>
+    </section>
 
-<div class="ticker border-b border-line py-3 text-acid font-mono text-[10px] tracking-[.3em]">
-<div class="ticker-track">ANTIDOT® — NO CURE FOR ORDINARY — KYIV / UKRAINE — ANTIDOT® — NO CURE FOR ORDINARY — KYIV / UKRAINE —</div>
-</div>
+    <div class="ticker border-b border-line py-3 text-white font-mono text-[10px] tracking-[.3em]">
+      <div class="ticker-track">ANTIDOT® — NO CURE FOR ORDINARY — KYIV / UKRAINE — ANTIDOT® — NO CURE FOR ORDINARY — KYIV / UKRAINE —</div>
+    </div>
 
-<section id="drop" class="max-w-7xl mx-auto px-4 md:px-10 py-20">
-<div class="grid lg:grid-cols-2 gap-5 items-stretch">
-<div class="product-image aspect-[4/5] outline cut bg-panel">
-<img src="front.png" alt="ST. OLGA TEE front" class="front">
-<img src="back.png" alt="ST. OLGA TEE back" class="back">
-<span class="absolute top-5 left-5 font-mono text-[10px]">ANTIDOT / 001</span>
-</div>
-<div class="outline cut bg-panel p-6 md:p-10 flex flex-col justify-center">
-<p class="font-mono text-[10px] text-acid tracking-widest" data-i18n="available">AVAILABLE NOW / LIMITED RUN</p>
-<h2 class="text-4xl md:text-6xl font-black tracking-[-.08em] uppercase mt-3">ST. OLGA<br><span class="text-neutral-500">KYIV TEE</span></h2>
-<p class="text-neutral-400 text-sm leading-7 mt-7 max-w-md" data-i18n="description">100% важка бавовна. Шовкотрафаретний принт, посилені шви та агресивний oversized силует. Створено в Києві.</p>
-<div class="flex items-center justify-between border-y border-line py-5 mt-8">
-<strong id="price" class="text-2xl font-black">2,400 UAH</strong>
-<span class="font-mono text-[10px] text-neutral-500">240 GSM / COTTON</span>
-</div>
-<div class="mt-6">
-<div class="flex justify-between font-mono text-[10px] text-neutral-400 mb-3">
-<span data-i18n="selectSize">ОБЕРІТЬ РОЗМІР</span>
-<b id="sizeLabel" class="text-white">L</b>
-</div>
-<div class="flex gap-2" id="sizes">
-<button class="size interactive outline flex-1 py-3 font-mono text-xs" data-size="S">S</button>
-<button class="size interactive outline flex-1 py-3 font-mono text-xs" data-size="M">M</button>
-<button class="size interactive outline flex-1 py-3 font-mono text-xs active bg-white text-black" data-size="L">L</button>
-<button class="size interactive outline flex-1 py-3 font-mono text-xs" data-size="XL">XL</button>
-</div>
-</div>
-<button id="add" class="interactive cut w-full bg-acid text-black py-4 mt-7 font-black text-xs tracking-widest" data-i18n="add">ДОДАТИ В КОШИК +</button>
-</div>
-</div>
-</section>
+    <section id="drop" class="max-w-7xl mx-auto px-4 md:px-10 py-20">
+      <div class="grid lg:grid-cols-2 gap-5 items-stretch">
+        <div class="product-image aspect-[4/5] outline cut bg-panel">
+          <img src="front.png" alt="ST. OLGA TEE front" class="front">
+          <img src="back.png" alt="ST. OLGA TEE back" class="back">
+          <span class="absolute top-5 left-5 font-mono text-[10px]">ANTIDOT / 001</span>
+        </div>
+        <div class="outline cut bg-panel p-6 md:p-10 flex flex-col justify-center">
+          <p class="font-mono text-[10px] text-white tracking-widest" data-i18n="available">AVAILABLE NOW / LIMITED RUN</p>
+          <h2 class="text-4xl md:text-6xl font-black tracking-[-.08em] uppercase mt-3">ST. OLGA<br><span class="text-neutral-500">KYIV TEE</span></h2>
+          <p class="text-neutral-400 text-sm leading-7 mt-7 max-w-md" data-i18n="description">100% heavyweight cotton. Screen-printed graphic, reinforced seams and an aggressive oversized silhouette. Made in Kyiv.</p>
+          <div class="flex items-center justify-between border-y border-line py-5 mt-8">
+            <strong id="price" class="text-2xl font-black">2,400 UAH</strong>
+            <span class="font-mono text-[10px] text-neutral-500">240 GSM / COTTON</span>
+          </div>
+          <div class="mt-6">
+            <div class="flex justify-between font-mono text-[10px] text-neutral-400 mb-3">
+              <span data-i18n="selectSize">SELECT SIZE</span>
+              <b id="sizeLabel" class="text-white">L</b>
+            </div>
+            <div class="flex gap-2" id="sizes">
+              <button class="size interactive outline flex-1 py-3 font-mono text-xs" data-size="S">S</button>
+              <button class="size interactive outline flex-1 py-3 font-mono text-xs" data-size="M">M</button>
+              <button class="size interactive outline flex-1 py-3 font-mono text-xs active bg-white text-black" data-size="L">L</button>
+              <button class="size interactive outline flex-1 py-3 font-mono text-xs" data-size="XL">XL</button>
+            </div>
+          </div>
+          <button id="add" class="interactive cut w-full bg-white text-black py-4 mt-7 font-black text-xs tracking-widest" data-i18n="add">ADD TO CART +</button>
+        </div>
+      </div>
+    </section>
 
-<section id="next" class="border-y border-line bg-[#101010] py-20 px-4 md:px-10">
-<div class="max-w-7xl mx-auto">
-<div class="flex justify-between items-end mb-10">
-<div>
-<p class="font-mono text-[10px] text-acid tracking-widest">// INCOMING TRANSMISSIONS</p>
-<h2 class="text-4xl md:text-6xl font-black tracking-[-.08em] uppercase mt-3" data-i18n="chapters">НАСТУПНІ<br>РОЗДІЛИ</h2>
-</div>
-<span class="hidden md:block font-mono text-[10px] text-neutral-500">NO IMAGES. NO SPOILERS.</span>
-</div>
-<div class="grid md:grid-cols-3 gap-4">
-<article class="cut outline bg-[#181818] p-6 aspect-square flex flex-col justify-between hover:bg-[#202020] transition">
-<b class="font-mono text-7xl text-acid">02</b>
-<div><small class="font-mono text-[9px] text-neutral-500">COMING SOON / 2025</small><h3 class="text-2xl font-black uppercase mt-2">DUSK / KYIV</h3></div>
-</article>
-<article class="cut outline bg-[#181818] p-6 aspect-square flex flex-col justify-between hover:bg-[#202020] transition">
-<b class="font-mono text-7xl text-neutral-700">03</b>
-<div><small class="font-mono text-[9px] text-neutral-500">IN DEVELOPMENT</small><h3 class="text-2xl font-black uppercase mt-2">CONCRETE POETRY</h3></div>
-</article>
-<article class="cut outline bg-[#181818] p-6 aspect-square flex flex-col justify-between hover:bg-[#202020] transition">
-<b class="font-mono text-7xl text-neutral-700">04</b>
-<div><small class="font-mono text-[9px] text-neutral-500">IN DEVELOPMENT</small><h3 class="text-2xl font-black uppercase mt-2">AFTER DARK</h3></div>
-</article>
-</div>
-</div>
-</section>
-</main>
+    <section id="next" class="border-y border-line bg-[#101010] py-20 px-4 md:px-10">
+      <div class="max-w-7xl mx-auto">
+        <div class="flex justify-between items-end mb-10">
+          <div>
+            <p class="font-mono text-[10px] text-white tracking-widest">// INCOMING TRANSMISSIONS</p>
+            <h2 class="text-4xl md:text-6xl font-black tracking-[-.08em] uppercase mt-3" data-i18n="chapters">NEXT<br>CHAPTERS</h2>
+          </div>
+          <span class="hidden md:block font-mono text-[10px] text-neutral-500">NO IMAGES. NO SPOILERS.</span>
+        </div>
+        <div class="grid md:grid-cols-3 gap-4">
+          <article class="cut outline bg-[#181818] p-6 aspect-square flex flex-col justify-between hover:bg-[#202020] transition">
+            <b class="font-mono text-7xl text-white">02</b>
+            <div><small class="font-mono text-[9px] text-neutral-500">COMING SOON / 2025</small><h3 class="text-2xl font-black uppercase mt-2">DUSK / KYIV</h3></div>
+          </article>
+          <article class="cut outline bg-[#181818] p-6 aspect-square flex flex-col justify-between hover:bg-[#202020] transition">
+            <b class="font-mono text-7xl text-neutral-700">03</b>
+            <div><small class="font-mono text-[9px] text-neutral-500">IN DEVELOPMENT</small><h3 class="text-2xl font-black uppercase mt-2">CONCRETE POETRY</h3></div>
+          </article>
+          <article class="cut outline bg-[#181818] p-6 aspect-square flex flex-col justify-between hover:bg-[#202020] transition">
+            <b class="font-mono text-7xl text-neutral-700">04</b>
+            <div><small class="font-mono text-[9px] text-neutral-500">IN DEVELOPMENT</small><h3 class="text-2xl font-black uppercase mt-2">AFTER DARK</h3></div>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
 
-<footer class="max-w-7xl mx-auto px-4 md:px-10 py-10 flex flex-col md:flex-row justify-between gap-4 font-mono text-[10px] text-neutral-500">
-<b class="text-white tracking-widest">ANTIDOT®</b>
-<span>KYIV, UKRAINE / EST. 2024</span>
-<span>ALL RIGHTS RESERVED</span>
-</footer>
+  <footer class="max-w-7xl mx-auto px-4 md:px-10 py-10 flex flex-col md:flex-row justify-between gap-4 font-mono text-[10px] text-neutral-500">
+    <b class="text-white tracking-widest">ANTIDOT®</b>
+    <span>KYIV, UKRAINE / EST. 2024</span>
+    <span>ALL RIGHTS RESERVED</span>
+  </footer>
 
-<div id="overlay" class="fixed inset-0 z-[60] bg-black/80 opacity-0 pointer-events-none transition-opacity"></div>
+  <div id="overlay" class="fixed inset-0 z-[60] bg-black/80 opacity-0 pointer-events-none transition-opacity"></div>
 
-<aside id="drawer" class="fixed z-[70] top-0 right-0 h-full w-full sm:max-w-[480px] translate-x-full transition-transform duration-300 bg-panel border-l border-line p-6 flex flex-col overflow-y-auto">
-<div class="flex justify-between items-start border-b border-line pb-5">
-<div>
-<p class="font-mono text-[10px] text-neutral-500">// YOUR SELECTION</p>
-<h2 class="text-2xl font-black uppercase" data-i18n="cart">КОШИК</h2>
-</div>
-<button id="cartClose" class="text-3xl text-neutral-400 hover:text-white" aria-label="Close cart">×</button>
-</div>
-<div id="items" class="py-5"></div>
-<div class="border-t border-line pt-5 space-y-5">
-<div>
-<label class="font-mono text-[10px] text-neutral-400 block mb-3">ДАНІ ОТРИМУВАЧА</label>
-<div class="space-y-2">
-<input id="customerName" class="cart-input" type="text" autocomplete="name" placeholder="Ім'я та прізвище">
-<input id="customerPhone" class="cart-input" type="tel" autocomplete="tel" placeholder="Номер телефону">
-<input id="customerEmail" class="cart-input" type="email" autocomplete="email" placeholder="Email">
-<input id="customerCity" class="cart-input" type="text" autocomplete="address-level2" placeholder="Місто">
-</div>
-</div>
-<div>
-<label class="font-mono text-[10px] text-neutral-400 block mb-3" data-i18n="delivery">ДОСТАВКА ПО УКРАЇНІ</label>
-<div class="space-y-2">
-<label class="radio block"><input class="hidden" type="radio" name="delivery" value="Нова пошта" checked><div class="outline p-3 flex justify-between text-xs"><span>Нова пошта</span><i></i></div></label>
-<label class="radio block"><input class="hidden" type="radio" name="delivery" value="Нова пошта — поштомат"><div class="outline p-3 flex justify-between text-xs"><span>Нова пошта — поштомат</span><i></i></div></label>
-<label class="radio block"><input class="hidden" type="radio" name="delivery" value="Укрпошта"><div class="outline p-3 flex justify-between text-xs"><span>Укрпошта</span><i></i></div></label>
-</div>
-<input id="deliveryAddress" class="cart-input mt-3" type="text" autocomplete="street-address" placeholder="Номер відділення або адреса поштомата">
-</div>
-<div>
-<label class="font-mono text-[10px] text-neutral-400 block mb-3" data-i18n="payment">СПОСІБ ОПЛАТИ</label>
-<div class="grid grid-cols-2 gap-2 payment-mobile">
-<label class="radio"><input class="hidden" type="radio" name="payment" value="Карта онлайн" checked><div class="outline p-3 flex justify-between text-xs"><span data-i18n="card">Карта онлайн</span><i></i></div></label>
-<label class="radio"><input class="hidden" type="radio" name="payment" value="Наложений платіж"><div class="outline p-3 flex justify-between text-xs"><span data-i18n="cod">Наложений платіж</span><i></i></div></label>
-</div>
-</div>
-<label class="flex items-start gap-3 cursor-pointer"><input id="personalData" type="checkbox" class="mt-1 accent-acid"><span class="font-mono text-[10px] leading-4 text-neutral-400">Я погоджуюсь на обробку персональних даних</span></label>
-<div class="flex justify-between font-mono border-t border-line pt-5"><span class="text-xs text-neutral-500" data-i18n="total">РАЗОМ</span><b id="total">0 UAH</b></div>
-<button id="checkout" class="interactive cut w-full bg-acid text-black py-4 font-black text-xs tracking-widest" data-i18n="checkout">ОФОРМИТИ ЗАМОВЛЕННЯ</button>
-</div>
-</aside>
+  <aside id="drawer" class="fixed z-[70] top-0 right-0 h-full w-full sm:max-w-[480px] translate-x-full transition-transform duration-300 bg-panel border-l border-line p-6 flex flex-col overflow-y-auto">
+    <div class="flex justify-between items-start border-b border-line pb-5">
+      <div>
+        <p class="font-mono text-[10px] text-neutral-500">// YOUR SELECTION</p>
+        <h2 class="text-2xl font-black uppercase" data-i18n="cart">CART</h2>
+      </div>
+      <button id="cartClose" class="text-3xl text-neutral-400 hover:text-white" aria-label="Close cart">×</button>
+    </div>
+    <div id="items" class="py-5"></div>
+    <div class="border-t border-line pt-5 space-y-5">
+      <div>
+        <label class="font-mono text-[10px] text-neutral-400 block mb-3">RECIPIENT DETAILS</label>
+        <div class="space-y-2">
+          <input id="customerName" class="cart-input" type="text" autocomplete="name" placeholder="Full name">
+          <input id="customerPhone" class="cart-input" type="tel" autocomplete="tel" placeholder="Phone number">
+          <input id="customerEmail" class="cart-input" type="email" autocomplete="email" placeholder="Email">
+          <input id="customerCity" class="cart-input" type="text" autocomplete="address-level2" placeholder="City">
+        </div>
+      </div>
+      <div>
+        <label class="font-mono text-[10px] text-neutral-400 block mb-3" data-i18n="delivery">DELIVERY IN UKRAINE</label>
+        <div class="space-y-2">
+          <label class="radio block"><input class="hidden" type="radio" name="delivery" value="Nova Poshta" checked><div class="outline p-3 flex justify-between text-xs"><span>Nova Poshta</span><i></i></div></label>
+          <label class="radio block"><input class="hidden" type="radio" name="delivery" value="Nova Poshta — parcel locker"><div class="outline p-3 flex justify-between text-xs"><span>Nova Poshta — parcel locker</span><i></i></div></label>
+          <label class="radio block"><input class="hidden" type="radio" name="delivery" value="Ukrposhta"><div class="outline p-3 flex justify-between text-xs"><span>Ukrposhta</span><i></i></div></label>
+        </div>
+        <input id="deliveryAddress" class="cart-input mt-3" type="text" autocomplete="street-address" placeholder="Parcel locker number or address">
+      </div>
+      <div>
+        <label class="font-mono text-[10px] text-neutral-400 block mb-3" data-i18n="payment">PAYMENT METHOD</label>
+        <div class="grid grid-cols-2 gap-2 payment-mobile">
+          <label class="radio"><input class="hidden" type="radio" name="payment" value="Card online" checked><div class="outline p-3 flex justify-between text-xs"><span data-i18n="card">Card online</span><i></i></div></label>
+          <label class="radio"><input class="hidden" type="radio" name="payment" value="Cash on delivery"><div class="outline p-3 flex justify-between text-xs"><span data-i18n="cod">Cash on delivery</span><i></i></div></label>
+        </div>
+      </div>
+      <label class="flex items-start gap-3 cursor-pointer"><input id="personalData" type="checkbox" class="mt-1 accent-white"><span class="font-mono text-[10px] leading-4 text-neutral-400">I agree to the processing of my personal data.</span></label>
+      <div class="flex justify-between font-mono border-t border-line pt-5"><span class="text-xs text-neutral-500" data-i18n="total">TOTAL</span><b id="total">0 UAH</b></div>
+      <button id="checkout" class="interactive cut w-full bg-white text-black py-4 font-black text-xs tracking-widest" data-i18n="checkout">CHECKOUT</button>
+    </div>
+  </aside>
 
-<script>
-const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];let size='L',currency='UAH',lang='UA',cart=JSON.parse(localStorage.getItem('antidot-cart')||'[]');
+  <script>
+    const $ = s => document.querySelector(s), $$ = s => [...document.querySelectorAll(s)];
+    let size = 'L', currency = 'UAH', lang = 'UA', cart = JSON.parse(localStorage.getItem('antidot-cart') || '[]');
 
-const t={
-UA:{
-catalog:'КАТАЛОГ',
-next:'СКОРО',
-cart:'КОШИК',
-heroMeta:'240 GSM HEAVYWEIGHT COTTON\nOVERSIZED CUT / MADE IN KYIV',
-viewDrop:'ПЕРЕГЛЯНУТИ ДРОП ↘',
-hoverFlip:'НАВЕДИ / ПЕРЕВЕРНИ',
-available:'ДОСТУПНО ЗАРАЗ / ЛІМІТОВАНИЙ ТИРАЖ',
-description:'100% важка бавовна. Шовкотрафаретний принт, посилені шви та агресивний oversized силует. Створено в Києві.',
-selectSize:'ОБЕРІТЬ РОЗМІР',
-add:'ДОДАТИ В КОШИК +',
-chapters:'НАСТУПНІ\nРОЗДІЛИ',
-delivery:'ДОСТАВКА ПО УКРАЇНІ',
-payment:'СПОСІБ ОПЛАТИ',
-card:'Карта онлайн',
-cod:'Наложений платіж',
-total:'РАЗОМ',
-checkout:'ОФОРМИТИ ЗАМОВЛЕННЯ',
-empty:'ВАШ КОШИК ПОРОЖНІЙ'
-},
-EN:{
-catalog:'CATALOG',
-next:'COMING',
-cart:'CART',
-heroMeta:'240 GSM HEAVYWEIGHT COTTON\nOVERSIZED CUT / MADE IN KYIV',
-viewDrop:'VIEW THE DROP ↘',
-hoverFlip:'HOVER / FLIP',
-available:'AVAILABLE NOW / LIMITED RUN',
-description:'100% heavyweight cotton. Screen-printed graphic, reinforced seams and an aggressive oversized silhouette. Made in Kyiv.',
-selectSize:'SELECT SIZE',
-add:'ADD TO CART +',
-chapters:'NEXT\nCHAPTERS',
-delivery:'DELIVERY IN UKRAINE',
-payment:'PAYMENT METHOD',
-card:'Card online',
-cod:'Cash on delivery',
-total:'TOTAL',
-checkout:'CHECKOUT',
-empty:'YOUR CART IS EMPTY'
-}
-};
+    const t = {
+      UA: {
+        catalog: 'КАТАЛОГ', next: 'СКОРО', cart: 'КОШИК', heroMeta: '240 GSM HEAVYWEIGHT COTTON\nOVERSIZED CUT / MADE IN KYIV',
+        viewDrop: 'ПЕРЕГЛЯНУТИ ДРОП ↘', hoverFlip: 'НАВЕДИ / ПЕРЕВЕРНИ', available: 'ДОСТУПНО ЗАРАЗ / ЛІМІТОВАНИЙ ТИРАЖ',
+        description: '100% важка бавовна. Шовкотрафаретний принт, посилені шви та агресивний oversized силует. Створено в Києві.',
+        selectSize: 'ОБЕРІТЬ РОЗМІР', add: 'ДОДАТИ В КОШИК +', chapters: 'НАСТУПНІ\nРОЗДІЛИ',
+        delivery: 'ДОСТАВКА ПО УКРАЇНІ', payment: 'СПОСІБ ОПЛАТИ', card: 'Карта онлайн', cod: 'Наложений платіж', total: 'РАЗОМ', checkout: 'ОФОРМИТИ ЗАМОВЛЕННЯ', empty: 'ВАШ КОШИК ПОРОЖНІЙ'
+      },
+      EN: {
+        catalog: 'CATALOG', next: 'COMING', cart: 'CART', heroMeta: '240 GSM HEAVYWEIGHT COTTON\nOVERSIZED CUT / MADE IN KYIV',
+        viewDrop: 'VIEW THE DROP ↘', hoverFlip: 'HOVER / FLIP', available: 'AVAILABLE NOW / LIMITED RUN',
+        description: '100% heavyweight cotton. Screen-printed graphic, reinforced seams and an aggressive oversized silhouette. Made in Kyiv.',
+        selectSize: 'SELECT SIZE', add: 'ADD TO CART +', chapters: 'NEXT\nCHAPTERS',
+        delivery: 'DELIVERY IN UKRAINE', payment: 'PAYMENT METHOD', card: 'Card online', cod: 'Cash on delivery', total: 'TOTAL', checkout: 'CHECKOUT', empty: 'YOUR CART IS EMPTY'
+      }
+    };
 
-const money=n=>currency==='UAH'?n.toLocaleString('uk-UA')+' UAH':Math.round(n/45).toLocaleString('en-US')+' €';
+    const money = n => currency === 'UAH' ? n.toLocaleString('uk-UA') + ' UAH' : Math.round(n / 45).toLocaleString('en-US') + ' €';
 
-function toast(text){
-const e=$('#toast');
-e.textContent=text;
-e.classList.remove('hidden');
-e.classList.add('toast-in');
-clearTimeout(window.toastTimer);
-window.toastTimer=setTimeout(()=>{
-e.classList.add('hidden');
-e.classList.remove('toast-in')
-},2800)
-}
+    function toast(text) {
+      const e = $('#toast');
+      e.textContent = text;
+      e.classList.remove('hidden');
+      e.classList.add('toast-in');
+      clearTimeout(window.toastTimer);
+      window.toastTimer = setTimeout(() => {
+        e.classList.add('hidden');
+        e.classList.remove('toast-in');
+      }, 2800);
+    }
 
-function save(){
-localStorage.setItem('antidot-cart',JSON.stringify(cart))
-}
+    function save() { localStorage.setItem('antidot-cart', JSON.stringify(cart)); }
 
-function render(){
-const qty=cart.reduce((a,x)=>a+x.qty,0),sum=cart.reduce((a,x)=>a+x.qty*x.price,0);
-$('#count').textContent=qty;
-$('#total').textContent=money(sum);
-$('#items').innerHTML=cart.length?cart.map((x,i)=>`<div class="outline p-4 flex justify-between items-center mb-2 gap-4"><div class="min-w-0"><b class="text-sm">${x.name}</b><p class="font-mono text-[10px] text-neutral-500 mt-1">SIZE ${x.size} / ${money(x.price)}</p></div><div class="flex items-center gap-3 shrink-0"><button class="qty outline w-7 h-7" data-i="${i}" data-d="-1" aria-label="Decrease quantity">−</button><span>${x.qty}</span><button class="qty outline w-7 h-7" data-i="${i}" data-d="1" aria-label="Increase quantity">+</button></div></div>`).join(''):`<div class="py-16 text-center font-mono text-xs text-neutral-500">${t[lang].empty}</div>`;
-$$('.qty').forEach(b=>b.onclick=()=>{
-const i=+b.dataset.i;
-cart[i].qty+=+b.dataset.d;
-if(cart[i].qty<1)cart.splice(i,1);
-save();
-render()
-})
-}
+    function render() {
+      const qty = cart.reduce((a, x) => a + x.qty, 0), sum = cart.reduce((a, x) => a + x.qty * x.price, 0);
+      $('#count').textContent = qty;
+      $('#total').textContent = money(sum);
+      $('#items').innerHTML = cart.length ? cart.map((x, i) => `
+        <div class="outline p-4 flex justify-between items-center mb-2 gap-4">
+          <div class="min-w-0"><b class="text-sm">${x.name}</b><p class="font-mono text-[10px] text-neutral-500 mt-1">SIZE ${x.size} / ${money(x.price)}</p></div>
+          <div class="flex items-center gap-3 shrink-0">
+            <button class="qty outline w-7 h-7" data-i="${i}" data-d="-1" aria-label="Decrease quantity">−</button>
+            <span>${x.qty}</span>
+            <button class="qty outline w-7 h-7" data-i="${i}" data-d="1" aria-label="Increase quantity">+</button>
+          </div>
+        </div>
+      `).join('') : `<div class="py-16 text-center font-mono text-xs text-neutral-500">${t[lang].empty}</div>`;
+      $$('.qty').forEach(b => b.onclick = () => {
+        const i = +b.dataset.i; cart[i].qty += +b.dataset.d;
+        if (cart[i].qty < 1) cart.splice(i, 1);
+        save(); render();
+      });
+    }
 
-function updateText(){
-const d=t[lang];
-$$('[data-i18n]').forEach(e=>{
-if(d[e.dataset.i18n])e.textContent=d[e.dataset.i18n]
-});
-document.documentElement.lang=lang==='UA'?'uk':'en';
-$('#language').classList.toggle('en',lang==='EN');
-$('#price').textContent=currency==='UAH'?'2,400 UAH':'53 €';
-render()
-}
+    function updateText() {
+      const d = t[lang];
+      $$('[data-i18n]').forEach(e => { if (d[e.dataset.i18n]) e.textContent = d[e.dataset.i18n]; });
+      document.documentElement.lang = lang === 'UA' ? 'uk' : 'en';
+      $('#language').classList.toggle('en', lang === 'EN');
+      $('#price').textContent = currency === 'UAH' ? '2,400 UAH' : '53 €';
+      render();
+    }
 
-function toggle(open){
-$('#drawer').classList.toggle('translate-x-full',!open);
-$('#overlay').classList.toggle('opacity-0',!open);
-$('#overlay').classList.toggle('pointer-events-none',!open);
-document.body.style.overflow=open?'hidden':''
-}
+    function toggle(open) {
+      $('#drawer').classList.toggle('translate-x-full', !open);
+      $('#overlay').classList.toggle('opacity-0', !open);
+      $('#overlay').classList.toggle('pointer-events-none', !open);
+      document.body.style.overflow = open ? 'hidden' : '';
+    }
 
-function clearInvalidState(){
-$$('.cart-input').forEach(f=>f.classList.remove('invalid'))
-}
+    function clearInvalidState() { $$('.cart-input').forEach(f => f.classList.remove('invalid')); }
 
-function validateCheckout(){
-clearInvalidState();
-if(!cart.length){
-toast(t[lang].empty);
-return false
-}
-for(const [s,m] of [
-['#customerName','Введіть ім’я та прізвище'],
-['#customerPhone','Введіть номер телефону'],
-['#customerEmail','Введіть email'],
-['#customerCity','Введіть місто'],
-['#deliveryAddress','Введіть номер відділення або адресу поштомата']
-]){
-const f=$(s);
-if(!f.value.trim()){
-f.classList.add('invalid');
-f.focus();
-toast(m);
-return false
-}
-}
-const phone=$('#customerPhone').value.trim(),email=$('#customerEmail').value.trim();
-if(phone.replace(/\D/g,'').length<10){
-$('#customerPhone').classList.add('invalid');
-$('#customerPhone').focus();
-toast('Введіть коректний номер телефону');
-return false
-}
-if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){
-$('#customerEmail').classList.add('invalid');
-$('#customerEmail').focus();
-toast('Введіть коректний email');
-return false
-}
-if(!$('#personalData').checked){
-toast('Підтвердіть згоду на обробку персональних даних');
-return false
-}
-return true
-}
+    function validateCheckout() {
+      clearInvalidState();
+      if (!cart.length) { toast(t[lang].empty); return false; }
+      for (const [s, m] of [
+        ['#customerName', 'Введіть ім’я та прізвище'],
+        ['#customerPhone', 'Введіть номер телефону'],
+        ['#customerEmail', 'Введіть email'],
+        ['#customerCity', 'Введіть місто'],
+        ['#deliveryAddress', 'Введіть номер відділення або адресу поштомата']
+      ]) {
+        const f = $(s);
+        if (!f.value.trim()) { f.classList.add('invalid'); f.focus(); toast(m); return false; }
+      }
+      const phone = $('#customerPhone').value.trim(), email = $('#customerEmail').value.trim();
+      if (phone.replace(/\D/g, '').length < 10) {
+        $('#customerPhone').classList.add('invalid'); $('#customerPhone').focus(); toast('Введіть коректний номер телефону'); return false;
+      }
+      if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+        $('#customerEmail').classList.add('invalid'); $('#customerEmail').focus(); toast('Введіть коректний email'); return false;
+      }
+      if (!$('#personalData').checked) { toast('Підтвердіть згоду на обробку персональних даних'); return false; }
+      return true;
+    }
 
-$$('.size').forEach(b=>b.onclick=()=>{
-size=b.dataset.size;
-$('#sizeLabel').textContent=size;
-$$('.size').forEach(x=>x.classList.remove('active','bg-white','text-black'));
-b.classList.add('active','bg-white','text-black')
-});
+    $$('.size').forEach(b => b.onclick = () => {
+      size = b.dataset.size;
+      $('#sizeLabel').textContent = size;
+      $$('.size').forEach(x => x.classList.remove('active', 'bg-white', 'text-black'));
+      b.classList.add('active', 'bg-white', 'text-black');
+    });
 
-$('#add').onclick=()=>{
-const x=cart.find(i=>i.size===size);
-x?x.qty++:cart.push({name:'ST. OLGA / KYIV TEE',size,price:2400,qty:1});
-save();
-render();
-toast(lang==='UA'?'ДОДАНО ДО КОШИКА':'ADDED TO CART')
-};
+    $('#add').onclick = () => {
+      const x = cart.find(i => i.size === size);
+      x ? x.qty++ : cart.push({ name: 'ST. OLGA / KYIV TEE', size, price: 2400, qty: 1 });
+      save(); render(); toast(lang === 'UA' ? 'ДОДАНО ДО КОШИКА' : 'ADDED TO CART');
+    };
 
-$('#cartOpen').onclick=()=>toggle(true);
-$('#cartClose').onclick=()=>toggle(false);
-$('#overlay').onclick=()=>toggle(false);
+    $('#cartOpen').onclick = () => toggle(true);
+    $('#cartClose').onclick = () => toggle(false);
+    $('#overlay').onclick = () => toggle(false);
 
-$('#currency').onclick=()=>{
-currency=currency==='UAH'?'EUR':'UAH';
-$('#currency').textContent=currency==='UAH'?'UAH (₴)':'EUR (€)';
-updateText()
-};
+    $('#currency').onclick = () => {
+      currency = currency === 'UAH' ? 'EUR' : 'UAH';
+      $('#currency').textContent = currency === 'UAH' ? 'UAH (₴)' : 'EUR (€)';
+      updateText();
+    };
 
-$('#language').onclick=()=>{
-lang=lang==='UA'?'EN':'UA';
-updateText();
-toast(lang==='UA'?'РЕЖИМ УКРАЇНСЬКОЇ':'ENGLISH MODE')
-};
+    $('#language').onclick = () => {
+      lang = lang === 'UA' ? 'EN' : 'UA';
+      updateText();
+      toast(lang === 'UA' ? 'РЕЖИМ УКРАЇНСЬКОЇ' : 'ENGLISH MODE');
+    };
 
-$('#checkout').onclick=()=>{
-if(!validateCheckout())return;
-const order={
-customer:{
-name:$('#customerName').value.trim(),
-phone:$('#customerPhone').value.trim(),
-email:$('#customerEmail').value.trim(),
-city:$('#customerCity').value.trim()
-},
-delivery:{
-method:$('input[name="delivery"]:checked').value,
-address:$('#deliveryAddress').value.trim()
-},
-payment:$('input[name="payment"]:checked').value,
-items:cart.map(item=>({
-name:item.name,
-size:item.size,
-price:item.price,
-quantity:item.qty
-})),
-total:{
-uah:cart.reduce((s,i)=>s+i.qty*i.price,0),
-formatted:money(cart.reduce((s,i)=>s+i.qty*i.price,0))
-},
-createdAt:new Date().toISOString()
-};
-console.log('ANTIDOT ORDER:',order);
-localStorage.setItem('antidot-last-order',JSON.stringify(order));
-toast(lang==='UA'?'ЗАМОВЛЕННЯ ПІДТВЕРДЖЕНО':'ORDER CONFIRMED')
-};
+    $('#checkout').onclick = () => {
+      if (!validateCheckout()) return;
+      const order = {
+        customer: {
+          name: $('#customerName').value.trim(), phone: $('#customerPhone').value.trim(), email: $('#customerEmail').value.trim(), city: $('#customerCity').value.trim()
+        },
+        delivery: { method: $('input[name="delivery"]:checked').value, address: $('#deliveryAddress').value.trim() },
+        payment: $('input[name="payment"]:checked').value,
+        items: cart.map(item => ({ name: item.name, size: item.size, price: item.price, quantity: item.qty })),
+        total: { uah: cart.reduce((s, i) => s + i.qty * i.price, 0), formatted: money(cart.reduce((s, i) => s + i.qty * i.price, 0)) },
+        createdAt: new Date().toISOString()
+      };
+      console.log('ANTIDOT ORDER:', order);
+      localStorage.setItem('antidot-last-order', JSON.stringify(order));
+      toast(lang === 'UA' ? 'ЗАМОВЛЕННЯ ПІДТВЕРДЖЕНО' : 'ORDER CONFIRMED');
+    };
 
-$$('.cart-input').forEach(f=>f.addEventListener('input',()=>f.classList.remove('invalid')));
+    $$('.cart-input').forEach(f => f.addEventListener('input', () => f.classList.remove('invalid')));
+    $$('input[name="delivery"]').forEach(input => input.addEventListener('change', () => {
+      $('#deliveryAddress').placeholder = input.value === 'Nova Poshta — parcel locker' ? 'Parcel locker address' : input.value === 'Ukrposhta' ? 'Parcel office number or address' : 'Parcel office or address';
+    }));
 
-$$('input[name="delivery"]').forEach(input=>input.addEventListener('change',()=>{
-$('#deliveryAddress').placeholder=input.value==='Нова пошта — поштомат'?'Адреса поштомата':input.value==='Укрпошта'?'Номер відділення або адреса':'Номер відділення або адреса поштомата'
-}));
-
-document.addEventListener('keydown',e=>{
-if(e.key==='Escape')toggle(false)
-});
-
-updateText();
-</script>
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') toggle(false); });
+    updateText();
+  </script>
 </body>
 </html>
